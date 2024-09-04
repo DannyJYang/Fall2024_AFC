@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Form Demo</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="" />
+  </head>
+  <body>
+    <form action="" method="get">
+      <label>Name:  <!--You can put the input inside the label-->
+        <input placeholder="Please enter full name" type="text" name="name" id="name" required maxlength="5" minlength="3"/>
+      </label>
+      <br>
+      <label>Age:
+        <input type="number" name="age" id="" min="21">
+      </label>
+      <br>
+      <label>Password:
+        <input type="password" name="pw" id="pw" />
+      </label>
+
+      <br>
+     <label for="email">Email:</label> <!--Or you can put them underneath but need to clarify what ID it is-->
+      <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$/">
+      <br>
+      <label> Are you married? <!--The name of the buttons must be the same to only allow one option for the user-->
+        <input type="radio" name="isMarried" id="" value="Yes">Yes
+        <input type="radio" name="isMarried" id="" value="No"checked>No
+        <input type="radio" name="isMarried" id="" value="maybe">It's Complicated
+      </label>
+      <br>
+      <label> Are you alive? <!--The name of the buttons must be the same to only allow one option for the user-->
+        <input type="radio" name="isAlive" id="" value="Yes" checked>Yes
+        <input type="radio" name="isAlive" id="" value="No">No
+        <input type="radio" name="isAlive" id="" value="Maybe">It's Complicated
+      </label>
+      <br>
+      <label> Favorite Colors:
+      Gray <input type="checkbox" name="color1" id="" value="Gray">
+      Grey<input type="checkbox" name="color2" id="" value="Grey">
+      Graey <input type="checkbox" name="color3" id="" value="Graey">
+      </label>
+      <br>
+      <br>
+      <label>Please tell us more about yourself
+        <br>
+        <textarea name="other_description" placeholder="Tell me more about yourself" cols="60" rows="6"> 
+        </textarea>
+      </label>
+      <br>
+      <label>State:
+        <select name="State" id="">
+            <option value="TX">TX</option>
+            <option value="IL">IL</option>
+            <option value="GA">GA</option>
+        </select>
+      </label>
+      <br>
+      <br>
+      <button type="submit"> Click this cool submit button </button>
+    </form>
+    <script src="" async defer></script>
+  </body>
+</html>
