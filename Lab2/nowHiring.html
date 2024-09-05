@@ -1,56 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="icon" type="image/x-icon" href="/Lab2/assets/favicon_io/favicon.ico">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="/Lab2/assets/favicon_io/favicon.ico"
+    />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Now Hiring</title>
-</head>
-<a href="index.html"> Landing Page</a>
-<br>
-<a href="menu.html"> Menu </a>
-<br>
-<a href="nowHiring.html">Now Hiring</a>
-<body>
+  </head>
+  <a href="index.html"> Landing Page</a>
+  <br />
+  <a href="menu.html"> Menu </a>
+  <br />
+  <a href="nowHiring.html">Now Hiring</a>
+  <body>
     <center>
-        <h1 > Now Hiring New Family Members!</h1>
+      <h1>Now Hiring New Family Members!</h1>
     </center>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLTB-Z9zPX3HjdHvHLinrryvWrR-BjabMEkA&s" width="300"alt="">
+    <img
+      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLTB-Z9zPX3HjdHvHLinrryvWrR-BjabMEkA&s"
+      width="300"
+      alt=""
+    />
 
     <form action="" method="get">
+      <br />
+      <label
+        >First Name:
+        <input
+          type="text"
+          name="fName"
+          id="fname"
+          required
+          minlength="1"
+          maxlength="20"
+        />
+      </label>
+      <br />
+      <label
+        >Last Name:
+        <input
+          type="text"
+          name="lName"
+          id="lName"
+          minlength="1"
+          maxlength="20"
+        />
+      </label>
+      <br />
+      <label
+        >Age:
+        <input type="number" name="age" id="age" min="21" max="99" />
+      </label>
+      <br />
+      <label>Marrital Status:
+        Single<input type="radio" name="marritalStatus" id="no" checked>
+        Married<input type="radio" name="marritalStatus" id="yes">
+        Divorced <input type="radio" name="marritalStatus" id="divorced">
+        Separated <input type="radio" name="marritalStatus" id="separated">
+      </label>
+      <br>
+      <label
+        >Email:
+        <input
+          type="email"
+          name=""
+          id=""
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$/"
+        />
+      </label>
+      <br />
+      <label
+        >Password:
+        <input
+          type="password"
+          name="pw"
+          id="pw"
+          minlength="8"
+          maxlength="12"
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&+=]).{8,}"
+          title="Must contain at least one number, one special symbol, one uppercase character, and one lowercase character - between 8-12 character"
+          required
+        />
+      </label>
+      <br />
+      <label
+        >Phone Number:
+        <input
+          type="text"
+          name="phoneNumber"
+          id="phoneNumber"
+          placeholder="xxx-xxx-xxxx"
+          minlength="12"
+          maxlength="12"
+          required
+        />
+      </label>
+      <br />
+      <label
+        >Address:
+        <input type="text" name="address1" id="address1" required />
+      </label>
+      <br />
+      <label
+        >Address2:
+        <input type="text" name="address2" id="address2" />
+      </label>
+      <br />
+      <label
+        >City:
+        <input type="text" name="city" id="city" maxlength="30" />
+      </label>
+      <br />
+      <label
+        >State:
+        <select name="State" id="">
+          <option value="TX">TX</option>
+          <option value="IL">IL</option>
+          <option value="GA">GA</option>
+          <option value="TN">TN</option>
+        </select>
+      </label>
+      <br />
+      <br>
+      <label>Favorite Colors:
         <br>
-        <label>First Name:
-            <input type="text" name="fName" id="fname" required minlength="1" maxlength="20">
-        </label> 
+        Dark Gray<input type="checkbox" name="color1" id="DarkGray">
+        Slightly Dark Gray<input type="checkbox" name="color2" id="sDarkGray">
+        Gray<input type="checkbox" name="color3" id="Gray">
+        Slightly Light Gray<input type="checkbox" name="color4" id="sLightGray">
+        Light Gray<input type="checkbox" name="color5" id="LightGray">
+      </label>
+      <br>
+      <br>
+      <label>Enter more Information about yourself (Max 300 char):
         <br>
-        <label>Last Name:
-            <input type="text" name="lName" id="lName" minlength="1" maxlength="20">
-        </label>
-        <br>
-        <label>Address:
-            <input type="text" name="address1" id="address1" required>
-        </label>
-        <br>
-        <label>Address2:
-           <input type="text" name="address2" id="address2">
-        </label>
-        <br>
-        <label>City:
-            <input type="text" name="city" id="city" maxlength="30">
-        </label>
-        <br>
-        <label>State:
-           <select name="State" id="">
-            <option value="TX">TX</option>
-            <option value="IL">IL</option>
-            <option value="GA">GA</option>
-            <option value="TN">TN</option>
-           </select>
-        </label>
-
-        <br>
-
+        <textarea name="extraInfo" id="extraInfo" rows="4" cols="60">
+        </textarea>
+      </label>
+      <br>
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
     </form>
-    
-</body>
+  </body>
 </html>
