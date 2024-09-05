@@ -22,7 +22,7 @@
     <img
       src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLTB-Z9zPX3HjdHvHLinrryvWrR-BjabMEkA&s"
       width="300"
-      alt=""
+      alt="Giancarlo Esposito looks at you intently"
     />
 
     <form action="" method="get">
@@ -55,13 +55,37 @@
         <input type="number" name="age" id="age" min="21" max="99" />
       </label>
       <br />
-      <label>Marrital Status:
-        Single<input type="radio" name="marritalStatus" id="no" checked>
-        Married<input type="radio" name="marritalStatus" id="yes">
-        Divorced <input type="radio" name="marritalStatus" id="divorced">
-        Separated <input type="radio" name="marritalStatus" id="separated">
+      <label
+        >Marrital Status:
+        <input
+          type="radio"
+          name="marritalStatus"
+          id="Single"
+          value="Single"
+          checked
+        />Single
+        <input
+          type="radio"
+          name="marritalStatus"
+          id="Married"
+          value="Married"
+        />
+        Married
+        <input
+          type="radio"
+          name="marritalStatus"
+          id="Divorced"
+          value="Divorced"
+        />
+        Divorced
+        <input
+          type="radio"
+          name="marritalStatus"
+          id="Separated"
+          value="Separated"
+        />Separated
       </label>
-      <br>
+      <br />
       <label
         >Email:
         <input
@@ -124,23 +148,45 @@
         </select>
       </label>
       <br />
-      <br>
-      <label>Favorite Colors:
-        <br>
-        Dark Gray<input type="checkbox" name="color1" id="DarkGray">
-        Slightly Dark Gray<input type="checkbox" name="color2" id="sDarkGray">
-        Gray<input type="checkbox" name="color3" id="Gray">
-        Slightly Light Gray<input type="checkbox" name="color4" id="sLightGray">
-        Light Gray<input type="checkbox" name="color5" id="LightGray">
+      <br />
+      <label
+        >Favorite Colors:
+        <br />
+        Dark Gray<input
+          type="checkbox"
+          name="color1"
+          id="DarkGray"
+          value="darkGray"
+        />
+        Slightly Dark Gray<input
+          type="checkbox"
+          name="color2"
+          id="sDarkGray"
+          value="sDarkGray"
+        />
+        Gray<input type="checkbox" name="color3" id="Gray" value="Gray" />
+        Slightly Light Gray<input
+          type="checkbox"
+          name="color4"
+          id="sLightGray"
+          value="sLightGray"
+        />
+        Light Gray<input
+          type="checkbox"
+          name="color5"
+          id="LightGray"
+          value="LightGray"
+        />
       </label>
-      <br>
-      <br>
-      <label>Enter more Information about yourself (Max 300 char):
-        <br>
+      <br />
+      <br />
+      <label
+        >Enter more Information about yourself (Max 300 char):
+        <br />
         <textarea name="extraInfo" id="extraInfo" rows="4" cols="60">
         </textarea>
       </label>
-      <br>
+      <br />
       <button type="submit">Submit</button>
       <button type="reset">Reset</button>
     </form>
