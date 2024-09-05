@@ -19,10 +19,34 @@
 
     <form action="" method="get">
         <br>
-        <label>
-            Name
-            <input type="text" name="name" id="name">
+        <label>First Name:
+            <input type="text" name="fName" id="fname" required minlength="1" maxlength="20">
         </label> 
+        <br>
+        <label>Last Name:
+            <input type="text" name="lName" id="lName" minlength="1" maxlength="20">
+        </label>
+        <br>
+        <label>Address:
+            <input type="text" name="address1" id="address1" required>
+        </label>
+        <br>
+        <label>Address2:
+           <input type="text" name="address2" id="address2">
+        </label>
+        <br>
+        <label>City:
+            <input type="text" name="city" id="city" maxlength="30">
+        </label>
+        <br>
+        <label>State:
+           <select name="State" id="">
+            <option value="TX">TX</option>
+            <option value="IL">IL</option>
+            <option value="GA">GA</option>
+            <option value="TN">TN</option>
+           </select>
+        </label>
 
         <br>
 
