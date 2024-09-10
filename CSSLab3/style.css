@@ -1,0 +1,33 @@
+/*1 Apply red background to all paragraphs*/
+P {
+    background-color: red;
+}
+/*2 Apply blue text color to elements with the class 'blue-text' */
+p .blue-text {
+    color: blue;
+}
+/*3 Apply green border to the element with the id 'unique-element'*/
+p .unique-element {
+    border: green, solid, 5px;
+    /*or formatted as 
+    border-color: green;
+    border-style: dotted;
+    border-width: 5px;
+    */
+}
+/*4 Apply a font size of 20px to all <span> elements inside <div> */
+div span {
+    font-size: 20px;
+}
+/*5 Apply a yellow background to all input elements with type= "text" */
+input [type="text"] {
+    background-color: yellow;
+}
+/*6 Change the text color of all <h1> elements to purple */
+h1 {
+    font-color: purple;
+}
+/*7 Change the background color of all <div> elements to light blue */
+div {
+    background-color: blue;
+}
