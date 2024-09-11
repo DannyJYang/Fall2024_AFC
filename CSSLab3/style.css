@@ -1,5 +1,5 @@
 /*1 Apply red background to all paragraphs*/
-P {
+p {
     background-color: red;
 }
 /*2 Apply blue text color to elements with the class 'blue-text' */
@@ -7,7 +7,7 @@ p .blue-text {
     color: blue;
 }
 /*3 Apply green border to the element with the id 'unique-element'*/
-p .unique-element {
+.unique-element {
     border: green, solid, 5px;
     /*or formatted as 
     border-color: green;
@@ -25,9 +25,80 @@ input [type="text"] {
 }
 /*6 Change the text color of all <h1> elements to purple */
 h1 {
-    font-color: purple;
+    color: purple;
 }
 /*7 Change the background color of all <div> elements to light blue */
 div {
-    background-color: blue;
+    background-color: lightblue;
+}
+/*8 Apply a background image to the body element*/
+/*9 Prevent the background image from repeating*/
+body {
+    background-image: url("background.png");
+    background-image: no-repeat;
+}
+/*10 Set the opacity of all <div> elements to 0.5*/
+div {
+    opacity: .5;
+}
+/*11 Change the font family of all <p> elements to Arial*/
+p {
+    font-family: "Arial";
+}
+/*12 Change the font size of all <h2> elements to 24px */
+h2 {
+    font-size: 24px;
+}
+/*13 Make the text of all <p> elements bold*/
+p {
+    font-weight: bold;
+}
+/*14 Center all <h3> elements*/
+h3 {
+    text-align: center;
+}
+/*15 Remove underlines all links*/
+a {
+    text-decoration: none;
+}
+/*16 Add a 20px margin to all <div> elements */
+div {
+    margin: 20px;
+}
+/*17 Add a 10px padding to all <div> elements */
+div {
+    padding: 10 px;
+}
+/*18 Add a solid, 2px black border to all <div> elements */
+div {
+    border: black, solid, 2px;
+}
+/*19 Set the wdith of all <img> elements to 200px and height to 150 px */
+img {
+    width: 200px;
+    height: 150px;
+}
+/*20 Add a shadow to all <div> elements*/
+div {
+    text-shadow: 2px, 2px, gray;
+}
+/*21 Change the display property of all <span> elements to block*/
+span {
+    display: block;
+}
+/*22 Position a <div> element at the top-right corner of the page*/
+div:nth-child(3) {
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+/*23 Float a <div> element to the left*/
+div:nth-child(1) {
+    float: left;
+}
+/*24 Use flexbox to center align items inside a container*/
+.container {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
 }
