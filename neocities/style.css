@@ -1,9 +1,42 @@
-/* * {
-    border: none;
-    margin: 0;
-    padding: 0;
-} */
+* {
+  border: none;
+  margin: 0;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 0;
+}
+h2 {
+  display: flex;
+  position:absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 14px;
+  width: 200px;
+  height: 20px;
+  border-style:dashed;
 
-p {
-    
+
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  margin: 0;
+  margin-top: 15px;
+  border-style:dashed;
+  /* background-color: rgb(74, 69, 69); */
+}
+#leftBox1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: dotted;
+  height: 400px;
+  width: 50px;
+  font-size: 16px;
 }
