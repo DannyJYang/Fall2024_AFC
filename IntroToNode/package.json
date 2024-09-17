@@ -1,0 +1,19 @@
+{
+  "name": "introtonode",
+  "version": "1.0.0",
+  "description": "Intro to node applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node",
+    "demo",
+    "compsci"
+  ],
+  "author": "DYang",
+  "license": "ISC",
+  "dependencies": {
+    "cat-me": "^1.0.3"
+  }
+}
