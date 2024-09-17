@@ -1,0 +1,4 @@
+.alert-success {
+    background-color: rgb(178, 7, 178) !important;
+    /* Using imporant tag overrides everything. This should be used at the minimum and for last scenario cases*/
+ }
