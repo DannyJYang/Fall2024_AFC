@@ -8,108 +8,118 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Los Pollos Hermanos - Menu</title>
+    <title>Los Pollos Hermanos</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!--Font from font awesome-->
+    <script
+      src="https://kit.fontawesome.com/3b1b6907c3.js"
+      crossorigin="anonymous"
+    ></script>
     <!--personal CSS-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <!--Pollos Hermanos Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Ribeye+Marrow&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <a href="index.html"> Landing Page</a>
-  <br />
-  <a href="menu.html"> Menu </a>
-  <br />
-  <a href="nowHiring.html">Now Hiring</a>
-  <br />
-  <br />
-  <body>
-    <h1 align="center">Menu</h1>
-    <table border="2" align="center">
-      <th bgcolor="yellow" style="font-size: 28px">Name</th>
-      <th bgcolor="yellow"style="font-size: 28px">Description</th>
-      <th bgcolor="yellow"style="font-size: 28px">Price</th>
-      <tr>
-        <td style="font-size: 20px">Basic Pollos Burritos</td>
-        <td style="font-size: 18x">
-          A basic chicken burrito with our signature hermanos grilled chicken
-          and signature pollos sauce
-          <img
-            src="https://www.recipetineats.com/uploads/2020/02/Chicken-Burritos_2.jpg"
-            alt="Picture of chicken burrito"
-            height="300"
-          />
-        </td>
-        <td style="font-size: 20px">$7.99</td>
-      </tr>
 
-      <tr>
-        <td style="font-size: 20px">Hueoves Rancheros</td>
-        <td style="font-size: 18px">
-          Our signature rancheros with fresh eggs from the local ...Farm
-          <img
-            src="https://www.daisybrand.com/wp-content/uploads/2019/12/huevos-racheros-770x628_6509.jpg"
-            width="300"
-            alt="Picture of an egg rancheros"
-          />
-        </td>
-        <td style="font-size: 20px">$6.49</td>
-      </tr>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img
+          src="assets/favicon_io/android-chrome-192x192.png"
+          width="80px"
+          alt="Los Pollos Hermanos Logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./history.html">History</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              More Info
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a class="dropdown-item" href="./nowHiring.html">Now Hiring</a>
+              </li>
+              <li><a class="dropdown-item" href="#">Contact Us</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-      <tr>
-        <td style="font-size: 20px">Pollos Classic Breakfast</td>
-        <td style="font-size: 18px">
-          Two pieces of hermanos fried chicken, two pancakes and your choice of
-          eggs
-          <img
-            src="https://i.pinimg.com/originals/ef/6a/ff/ef6aff80ea9848e43332e003784b9947.jpg"
-            width="300"
-            alt="Picture of two pancakes, chicken and scrambled eggs on a white plate"
-          />
-        </td>
-        <td style="font-size: 20x">$8.99</td>
-      </tr>
+  <!--Menu title-->
+  <body id="menuBody">
+    <h1 class="text-center" style="color: rgb(255, 255, 255)">
+      <i class="fa-solid fa-drumstick-bite" style="color: #db853b"></i>
+      <b>Menu</b>
+      <i class="fa-solid fa-drumstick-bite" style="color: #db853b"></i>
+    </h1>
 
-      <tr>
-        <td style="font-size: 20x">All American Burger</td>
-        <td style="font-size: 18px">
-          A true American Burger. This month's bun is provided by the Capitoline
-          Brotherhood of Millers. The Brotherhood uses only the finest flour:
-          true Roman Bread for true Romans
-          <img
-            src="https://steamuserimages-a.akamaihd.net/ugc/919177491068368859/F2277D59535751631225EBEF0D424D3A7C87D835/?imw=512&imh=285&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true"
-            width="400"
-            alt="Gif of the townspeaker in HBO TV Series Rome using his hands while speaking"
-          />
-        </td>
-        <td style="font-size: 20px">$9.99</td>
-      </tr>
-
-      <tr>
-        <td style="font-size: 20px">Methamphetamine</td>
-        <td style="font-size: 218x">
-          1 ounce of 99.1% chemically pure. "TIGHT TIGHT TIGHT! YEAH!" - Tuco
-          Salamanca
-          <img
-            src="https://media3.giphy.com/media/T3fwN6Pbm3ZPa/giphy.gif?cid=6c09b952zm6uman98s1kc3p4k0ufvmgvnuvx47dkcaiwq5rz&ep=v1_gifs_search&rid=giphy.gif&ct=g"
-            width="300"
-            alt="Gif of Tuco Salamanca from TV Series Breaking Bad saying 'Tight, Tight, Tight' after he snorts some methamphetamine from Heinsenberg"
-          />
-        </td>
-        <td style="font-size: 20px">$50</td>
-      </tr>
-    </table>
-
+    <!--Cards-->
+    <div class="container">
+      <div class="card" style="width: 30rem">
+        <img
+          src="https://i2.wp.com/louskitchencorner.freybors.com/wp-content/uploads/2020/07/chicken-waffles.png?fit=1024%2C683&ssl=1"
+          class="card-img-top"
+          alt="Pollos Breakfast Waffles"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Pollos Breakfast Waffles</h5>
+          <p class="card-text">
+            Breakfast waffles and fried Pollos Chicken with maple syrup and
+            butter!
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </div>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
-    ></script> 
+    ></script>
     <!--Personal JS-->
     <script src="./script.js"></script>
-
   </body>
 </html>
