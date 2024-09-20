@@ -8,170 +8,116 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Now Hiring</title>
+    <title>Los Pollos Hermanos</title>
+    <!--Bootstrap CSS-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!--Font from font awesome-->
+    <script src="https://kit.fontawesome.com/3b1b6907c3.js" crossorigin="anonymous"></script>
+    <!--personal CSS-->
+    <link rel="stylesheet" href="style.css" />
+    <!--Pollos Hermanos Font from Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Ribeye+Marrow&display=swap" rel="stylesheet">
+
   </head>
-  <a href="index.html"> Landing Page</a>
-  <br />
-  <a href="menu.html"> Menu </a>
-  <br />
-  <a href="nowHiring.html">Now Hiring</a>
-  <body>
+
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="./index.html">
+        <img src="assets/favicon_io/android-chrome-192x192.png" width="80px" alt="Los Pollos Hermanos Logo">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./menu.html">Menu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./history.html">History</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More Info
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="./nowHiring.html">Now Hiring</a></li>
+              <li><a class="dropdown-item" href="#">Contact Us</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <body id="nowHiringBody">
     <center>
       <h1>Now Hiring New Family Members!</h1>
     </center>
-    <img
-      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLTB-Z9zPX3HjdHvHLinrryvWrR-BjabMEkA&s"
-      width="300"
-      alt="Giancarlo Esposito looks at you intently"
-    />
 
     <form action="" method="get">
-      <br />
-      <label>First Name:
+      <div class="col-md-2">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input type="email" class="form-control" id="inputEmail4" />
+      </div>
+      <div class="col-md-1">
+        <label for="age" class="form-label" id="age">Age</label>
+        <input type="number" class="form-control" id="inputAge" />
+      </div>
+      <div class="col-4">
+        <label for="inputAddress" class="form-label">Address</label>
         <input
           type="text"
-          name="fName"
-          id="fname"
-          required
-          minlength="1"
-          maxlength="20"
+          class="form-control"
+          id="inputAddress"
+          placeholder="1234 Main St"
         />
-      </label>
-      <br />
-      <label>Last Name:
+      </div>
+      <div class="col-4">
+        <label for="inputAddress2" class="form-label">Address 2</label>
         <input
           type="text"
-          name="lName"
-          id="lName"
-          minlength="1"
-          maxlength="20"
+          class="form-control"
+          id="inputAddress2"
+          placeholder="Apartment, studio, or floor"
         />
-      </label>
-      <br />
-      <label>Age:
-        <input type="number" name="age" id="age" min="21" max="99" />
-      </label>
-      <br />
-      <label>Marrital Status:
-        <input
-          type="radio"
-          name="marritalStatus"
-          id="Single"
-          value="Single"
-          checked
-        />Single
-        <input
-          type="radio"
-          name="marritalStatus"
-          id="Married"
-          value="Married"
-        />Married
-        <input
-          type="radio"
-          name="marritalStatus"
-          id="Divorced"
-          value="Divorced"
-        />Divorced
-        <input
-          type="radio"
-          name="marritalStatus"
-          id="Separated"
-          value="Separated"
-        />Separated
-      </label>
-      <br />
-      <label>Email:
-        <input
-          type="email"
-          name=""
-          id=""
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,6}$/"
-        />
-      </label>
-      <br />
-      <label>Password:
-        <input
-          type="password"
-          name="pw"
-          id="pw"
-          minlength="8"
-          maxlength="12"
-          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&+=]).{8,}"
-          title="Must contain at least one number, one special symbol, one uppercase character, and one lowercase character - between 8-12 character"
-          required
-        />
-      </label>
-      <br />
-      <label>Phone Number:
-        <input
-          type="text"
-          name="phoneNumber"
-          id="phoneNumber"
-          placeholder="xxx-xxx-xxxx"
-          minlength="12"
-          maxlength="12"
-          required
-        />
-      </label>
-      <br />
-      <label>Address:
-        <input type="text" name="address1" id="address1" required />
-      </label>
-      <br />
-      <label>Address2:
-        <input type="text" name="address2" id="address2" />
-      </label>
-      <br />
-      <label>City:
-        <input type="text" name="city" id="city" maxlength="30" />
-      </label>
-      <br />
-      <label>State:
-        <select name="State" id="">
-          <option value="TX">TX</option>
-          <option value="IL">IL</option>
-          <option value="GA">GA</option>
-          <option value="TN">TN</option>
+      </div>
+      <div class="col-md-1">
+        <label for="inputCity" class="form-label">City</label>
+        <input type="text" class="form-control" id="inputCity" />
+      </div>
+      <div class="col-md-1">
+        <label for="inputState" class="form-label">State</label>
+        <select id="inputState" class="form-select">
+          <option selected>Choose...</option>
+          <option>...</option>
         </select>
-      </label>
-      <br />
-      <br />
-      <label>Favorite Colors:
-        <br />
-        Dark Gray<input
-          type="checkbox"
-          name="color1"
-          id="DarkGray"
-          value="darkGray"
-        />
-        Slightly Dark Gray<input
-          type="checkbox"
-          name="color2"
-          id="sDarkGray"
-          value="sDarkGray"
-        />
-        Gray<input type="checkbox" name="color3" id="Gray" value="Gray" />
-        Slightly Light Gray<input
-          type="checkbox"
-          name="color4"
-          id="sLightGray"
-          value="sLightGray"
-        />
-        Light Gray<input
-          type="checkbox"
-          name="color5"
-          id="LightGray"
-          value="LightGray"
-        />
-      </label>
-      <br />
-      <br />
-      <label>Enter more Information about yourself (Max 30 char):
-        <br />
-        <textarea name="extraInfo" id="extraInfo" rows="4" cols="60" maxlength="30">
-        </textarea>
-      </label>
-      <br />
+      </div>
+      <div class="col-md-1">
+        <label for="inputZip" class="form-label">Zip</label>
+        <input type="text" class="form-control" id="inputZip" />
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" />
+          <label class="form-check-label" for="gridCheck"> Check me out </label>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+
       <button type="submit">Submit</button>
       <button type="reset">Reset</button>
     </form>

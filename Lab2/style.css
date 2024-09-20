@@ -1,48 +1,50 @@
 /*Chose the primary colors to be yellow and red - like McDonalds - as those are the colors that are in Los Pollos Hermanos Logo */
 /*#FDDE07 #3f3838 #D7253B */
+* {
+  margin: 0;
+  padding: 0;
+}
 #indexBody {
-    background-image: url(./assets/homepageBackground.png);
-    background-size:cover;
-    background-position: center 20%;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
+  background-image: url(./assets/homepageBackground.png);
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
 }
 #menuBody {
-    background-image: url("https://www.mashed.com/img/gallery/better-call-saul-inspired-los-pollos-hermanos-chicken-recipe/l-intro-1685627299.jpg");
-    background-size:cover;
-    background-position: center 20%;
+  background-image: url("https://www.mashed.com/img/gallery/better-call-saul-inspired-los-pollos-hermanos-chicken-recipe/l-intro-1685627299.jpg");
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  margin: 0px;
+}
+#nowHiringBody {
+    background-image: url("https://www.rollingstone.com/wp-content/uploads/2018/06/gus-fring-los-pollos-hermanos-better-call-saul-back-watch-55e3d684-c6fc-43b1-912d-f53ff94f4ca8.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
 }
-
-.navbar>div{
-    background-color: #fdde07;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    font-family: "Carter One", system-ui;
-    font-size: 16px;
+.navbar > div {
+  background-color: #fdde07;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: "Carter One", system-ui;
+  font-size: 16px;
 }
-
 h1 {
-    font-family: "Carter One", system-ui;
-    font-size:  60px;
+  font-family: "Carter One", system-ui;
+  font-size: 60px;
 }
-
 .carter-one-regular {
-    font-family: "Carter One", system-ui;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Carter One", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
 .fa-drumstick-bite {
-    color: rgb(0, 0, 0);
+  color: rgba(192, 103, 7, 0.65);
 }
-
-.container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    padding: 0px;
+.containerCard {
+  margin: 0;
 }
-  
