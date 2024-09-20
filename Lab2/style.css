@@ -48,3 +48,14 @@ h1 {
 .containerCard {
   margin: 0;
 }
+
+#nowHiringBlock {
+    background-color: rgba(255,255,255,.5);
+}
+
+/* #moreInfo {
+    padding: 5px;
+    line-height: 1.2;
+    resize: none;
+    height: 100px;
+} */

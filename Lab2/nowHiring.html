@@ -17,29 +17,47 @@
       crossorigin="anonymous"
     />
     <!--Font from font awesome-->
-    <script src="https://kit.fontawesome.com/3b1b6907c3.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/3b1b6907c3.js"
+      crossorigin="anonymous"
+    ></script>
     <!--personal CSS-->
     <link rel="stylesheet" href="style.css" />
     <!--Pollos Hermanos Font from Google Font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Ribeye+Marrow&display=swap" rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Ribeye+Marrow&display=swap"
+      rel="stylesheet"
+    />
   </head>
-
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <a class="navbar-brand" href="./index.html">
-        <img src="assets/favicon_io/android-chrome-192x192.png" width="80px" alt="Los Pollos Hermanos Logo">
+        <img
+          src="assets/favicon_io/android-chrome-192x192.png"
+          width="80px"
+          alt="Los Pollos Hermanos Logo"
+        />
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+            <a class="nav-link active" aria-current="page" href="./index.html"
+              >Home</a
+            >
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./menu.html">Menu</a>
@@ -48,11 +66,19 @@
             <a class="nav-link" href="./history.html">History</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
               More Info
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="./nowHiring.html">Now Hiring</a></li>
+              <li>
+                <a class="dropdown-item" href="./nowHiring.html">Now Hiring</a>
+              </li>
               <li><a class="dropdown-item" href="#">Contact Us</a></li>
             </ul>
           </li>
@@ -66,60 +92,166 @@
       <h1>Now Hiring New Family Members!</h1>
     </center>
 
-    <form action="" method="get">
-      <div class="col-md-2">
-        <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" />
-      </div>
-      <div class="col-md-1">
-        <label for="age" class="form-label" id="age">Age</label>
-        <input type="number" class="form-control" id="inputAge" />
-      </div>
-      <div class="col-4">
-        <label for="inputAddress" class="form-label">Address</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputAddress"
-          placeholder="1234 Main St"
-        />
-      </div>
-      <div class="col-4">
-        <label for="inputAddress2" class="form-label">Address 2</label>
-        <input
-          type="text"
-          class="form-control"
-          id="inputAddress2"
-          placeholder="Apartment, studio, or floor"
-        />
-      </div>
-      <div class="col-md-1">
-        <label for="inputCity" class="form-label">City</label>
-        <input type="text" class="form-control" id="inputCity" />
-      </div>
-      <div class="col-md-1">
-        <label for="inputState" class="form-label">State</label>
-        <select id="inputState" class="form-select">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="col-md-1">
-        <label for="inputZip" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="inputZip" />
-      </div>
-      <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck" />
-          <label class="form-check-label" for="gridCheck"> Check me out </label>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
+    <!--Row for the form-->
+    <div class="row">
+      <!--Adding margin to the left and right using columns-->
+      <div class="col-md-2"></div>
 
-      <button type="submit">Submit</button>
-      <button type="reset">Reset</button>
-    </form>
+      <div class="col-md-8" id="nowHiringBlock">
+        <form action="" method="get" id="hiringForm">
+          <!--Start name and age row-->
+          <div class="row">
+            <div class="col-md-5">
+              <label for="fName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="fName" />
+            </div>
+
+            <div class="col-md-5">
+              <label for="fName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lName" />
+            </div>
+
+            <div class="col-md-2">
+              <label for="age" class="form-label" id="age">Age</label>
+              <input type="text" class="form-control" id="ageInput" />
+              <!-- <p class="error" id="error-message">Please enter a valid age greater than 18</p> -->
+            </div>
+
+            <!--End of name and age row-->
+            <!--Start email phone row-->
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label for="inputEmail4" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" />
+            </div>
+
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <input type="text" class="form-control" id="phoneInput" placeholder=""/>
+            </div>
+            <!--End of email phone row-->
+          </div>
+
+          <!--Start address row-->
+          <div class="row">
+            <div class="col-md-8">
+              <label for="inputAddress" class="form-label">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="1234 Main St"
+              />
+            </div>
+
+            <div class="col-4">
+              <label for="inputAddress2" class="form-label">Address 2</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress2"
+                placeholder="Apartment, studio, or floor"
+              />
+            </div>
+            <!--End address row-->
+          </div>
+
+          <!--Begin row for city, state, zip-->
+          <div class="row">
+            <div class="col-md-2">
+              <label for="inputCity" class="form-label">City</label>
+              <input type="text" class="form-control" id="inputCity" />
+            </div>
+
+            <div class="col-md-2">
+              <label for="inputState" class="form-label">State</label>
+              <select id="inputState" class="form-select">
+                <option selected>Choose...</option>
+                <option>Texas</option>
+                <option>New Mexico</option>
+                <option>Arizona</option>
+              </select>
+            </div>
+
+            <div class="col-md-2">
+              <label for="zip" class="form-label">Zip</label>
+              <input type="text" class="form-control" id="zip" />
+            </div>
+
+            <!--Criminal status box-->
+            <div class="col-md-6">
+              <p class="text-center">Criminal Status</p>
+
+              <div class="form-check form-check-inline col-md-4" id="criminalRecord">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio1"
+                  value="option1"
+                />
+                <label class="form-check-label" for="inlineRadio1"
+                  >Wanted</label
+                >
+              </div>
+              <div class="form-check form-check-inline col-md-4">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio2"
+                  value="option2"
+                />
+                <label class="form-check-label" for="inlineRadio2">Felon</label>
+              </div>
+
+              <div class="form-check form-check-inline col-md-2">
+                <input
+                  class="form-check-input"
+                  type="radio"
+                  name="inlineRadioOptions"
+                  id="inlineRadio3"
+                  value="option3"
+                  disabled
+                />
+                <label class="form-check-label" for="inlineRadio3"
+                  >Innocent</label>
+              </div>
+              <!--End criminal Status box-->
+            </div>
+          </div>
+
+          <div class="col-md-12">More Info
+            <div class="form-floating">
+              <textarea 
+              class="form-control" 
+              placeholder="Tell us about yourself!" 
+              id="moreInfo"
+              style="height: 100px; padding: 5px;">
+              </textarea>
+              <h6 id="charCount">30 Characters left</h6>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="reset" class="btn btn-secondary">Reset</button>
+          </div>
+        </form>
+      </div>
+      <!--Adding margin to the right using column-->
+      <div class="col-md-2"></div>
+      <!--End of row-->
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./script2.js"></script>
   </body>
 </html>

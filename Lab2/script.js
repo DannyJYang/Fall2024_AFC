@@ -64,22 +64,26 @@ document.getElementById('next-button').addEventListener('click', () => {
 
 prevImage(); //initializing the first menu item
 
-document.getElementById('age'),addEventListener('submit', function(event) {
-    event.preventDefault();
-    const ageInput = document.getElementById("age").value;
-    const errorMessage = document.getElementById("error-message");
-    const age = Number(ageInput);
+// document.getElementById('submit'),addEventListener('submit', function(event) {
+//     event.preventDefault();
+//     const ageInput = document.getElementById("ageInput").value;
+//     const errorMessage = document.getElementById("error-message-age");
+//     const age = Number(ageInput);
 
-    if(isNaN(age) || age < 21 || age > 99) {
-        errorMessage.style.display = 'block';
-        alert("Age must be at least 21 and less than 99")
-    } else {
-        errorMessage.style.display = 'none';
-    }
-});
+//     if(isNaN(age) || age < 21 || age > 99) {
+//         errorMessage.style.display = 'block';
+//     } else {
+//         errorMessage.style.display = 'none';
+//         this.alert("Submitted!");
+//     }
+// });
 
-document.getElementById('phoneNumber').addEventListener('click', function(event) {
-    event.preventDefault();
-    document.getElementById('inputAge').placeholder = "###-###-####";
+// document.getElementById('phoneNumber').addEventListener('click', function(event) {
+//     event.preventDefault();
+//     document.getElementById('inputAge').placeholder = "###-###-####";
 
-});
+// });
+
+// const phonePlaceholder = document.getElementById("phoneInput");
+// console.log(phonePlaceholder);
+// phonePlaceholder.placeholder = "###-###-####";
