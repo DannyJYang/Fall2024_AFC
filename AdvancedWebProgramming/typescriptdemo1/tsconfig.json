@@ -1,0 +1,9 @@
+{
+    // Some typical compiler options
+    "compilerOptions": {
+        "target":"ES2022",
+        "module": "commonjs",
+        "outDir": "./build",
+        "rootDir": "./src"
+    }
+}
