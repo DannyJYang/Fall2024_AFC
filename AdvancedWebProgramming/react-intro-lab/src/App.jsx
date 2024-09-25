@@ -2,15 +2,17 @@ import React from "react";
 import Greeting from "./components/Greeting";
 import UserCard from "./components/UserCard";
 import CardContainer from "./components/CardContainer"
+import { sort } from "./helper";
 
 const App = () => {
-  let info = [
+  let users = [
     {name: "Bob", age: "30"},
     {name: "Charlie", age: "35"},
     {name: "Alice", age:"25"}
   ];
-  let userCards = info.map((user, i) => {
-    return <UserCrard key={index} name={user.name} age={user.age}/>;
+  sort(users);
+  let userCards = users.map((user, index) => {
+    return <UserCard key={index} name={user.name} age={user.age}/>;
   });
 
 

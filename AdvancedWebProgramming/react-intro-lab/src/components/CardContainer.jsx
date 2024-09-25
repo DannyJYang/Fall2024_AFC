@@ -1,8 +1,8 @@
-const CardContainer = (children) => {
-    let {CardContainer} = children;
+const CardContainer = (props) => {
+    let {children} = props;
     return (
         <div style= {{border: "2px solid", padding: "20px"}}>
-            {CardContainer}
+            {children}
         </div>
     )
 }
