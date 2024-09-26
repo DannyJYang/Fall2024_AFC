@@ -5,32 +5,20 @@ import { numberGenerator } from "./components/Helper";
 import Dice from "./components/Dice";
 
 function App() {
-  // const [dice1, setDice1] = useState(numberGenerator());
-  // const [dice2, setDice2] = useState(numberGenerator());
-  // const [dice3, setDice3] = useState(numberGenerator());
-  const [dice1, setDice1] = useState(5);
-  const [dice2, setDice2] = useState(5);
-  const [dice3, setDice3] = useState(5);
-  const [backgroundImage, setBackgroundImage] = useState("")
+  const [dice1, setDice1] = useState(numberGenerator());
+  const [dice2, setDice2] = useState(numberGenerator());
+  const [dice3, setDice3] = useState(numberGenerator());
+  const [backgroundImage, setBackgroundImage] = useState("");
 
-  const audioRef = useRef(null)
+  const audioRef = useRef(null);
 
   useEffect(() => {
-    // Update background image based on dice roll
-    // if (dice1 === 5 && dice2 === 5 && dice3 === 5) {
-    //   document.body.style.backgroundImage = "url('/assets/Background.png')";
-    //   document.body.style.backgroundSize = "cover";
-    //   document.body.style.backgroundPosition = "center";
-    // } else {
-    //   document.body.style.backgroundImage = "none";
-    // }
-
     if (dice1 === 5 && dice2 === 5 && dice3 === 5) {
       document.body.style.backgroundImage = "url('/assets/Background.png')";
       document.body.style.backgroundSize = "contain";
       document.body.style.backgroundPosition = "center";
       if (audioRef.current) {
-        audioRef.current.play().catch(error => {
+        audioRef.current.play().catch((error) => {
           console.error("Audio playback failed:", error);
         });
       }
@@ -48,44 +36,41 @@ function App() {
     setDice1(numberGenerator());
     setDice2(numberGenerator());
     setDice3(numberGenerator());
-    // setDice1(5);
-    // setDice2(5);
-    // setDice3(5);
-
     if (dice1 === 5 && dice2 === 5 && dice3 === 5) {
       document.body.style.backgroundImage = "url('/assets/Background.png')";
       document.body.style.backgroundSize = "cover";
       document.body.style.backgroundPosition = "center";
       if (audioRef.current) {
-        audioRef.current.play().catch(error => {
+        audioRef.current.play().catch((error) => {
           console.error("Audio playback failed:", error);
         });
       }
     } else {
       document.body.style.backgroundImage = "none";
     }
-  }
-
-  const sum = dice1+dice2+dice3 + 3;
+  };
+  const sum = dice1 + dice2 + dice3 + 3;
 
   return (
     <>
-        <audio ref={audioRef} src="/assets/BackgroundAudio.mp3" loop/>
-        <div className="row">
-          <h1>Roll dice</h1>
-        </div>
+      <audio ref={audioRef} src="/assets/BackgroundAudio.mp3" loop />
+      <div className="row">
+        <h1>Roll dice</h1>
+      </div>
 
-        <div className="row">
-          <Dice roll={dice1} />
-          <Dice roll={dice2} />
-          <Dice roll={dice3} />
-        </div>
+      <div className="row">
+        <Dice roll={dice1} />
+        <Dice roll={dice2} />
+        <Dice roll={dice3} />
+      </div>
 
-        <div className="row">
-          <h2>You rolled: {sum}</h2>
-        </div>
+      <div className="row">
+        <h2>You rolled: {sum}</h2>
+      </div>
 
-        <button type="button" onClick={rollDice}>Dice Roll!</button>
+      <button type="button" onClick={rollDice}>
+        Dice Roll!
+      </button>
     </>
   );
 }
