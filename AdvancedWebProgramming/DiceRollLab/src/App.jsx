@@ -33,9 +33,12 @@ function App() {
   }, [dice1, dice2, dice3]);
 
   const rollDice = () => {
-    setDice1(numberGenerator());
-    setDice2(numberGenerator());
-    setDice3(numberGenerator());
+    // setDice1(numberGenerator());
+    // setDice2(numberGenerator());
+    // setDice3(numberGenerator());
+    setDice1(5);
+    setDice2(5);
+    setDice3(5);
     if (dice1 === 5 && dice2 === 5 && dice3 === 5) {
       document.body.style.backgroundImage = "url('/assets/Background.png')";
       document.body.style.backgroundSize = "cover";
@@ -53,7 +56,7 @@ function App() {
 
   return (
     <>
-      <audio ref={audioRef} src="/assets/BackgroundAudio.mp3" loop />
+      <audio ref={audioRef} src="/assets/Reborn.mp3" loop />
       <div className="row">
         <h1>Roll dice</h1>
       </div>
