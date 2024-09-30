@@ -36,6 +36,7 @@ function App() {
     setDice1(numberGenerator());
     setDice2(numberGenerator());
     setDice3(numberGenerator());
+
     if (dice1 === 5 && dice2 === 5 && dice3 === 5) {
       document.body.style.backgroundImage = "url('/assets/Background.png')";
       document.body.style.backgroundSize = "cover";
