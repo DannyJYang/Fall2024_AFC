@@ -1,0 +1,18 @@
+#mainTable {
+    margin-top: 3vh;
+    border: 4px, #bfc1b7, solid;
+    background-color: #50514d;
+    opacity: 80%;
+}
+
+#headerRow {
+    font-size: 24px;
+    margin-left: 5px;
+
+
+}
+
+#tableBody {
+    font-size: 18px;
+
+}
