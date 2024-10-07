@@ -66,7 +66,7 @@ export default function NavBar() {
   const handleKeyDown = (event) => {
     // if(event.metaKey && event.key === 'F4')
     // console.log("running search for: ", searchData);
-    if (event.key === "Enter") {
+    if (event.key === "Enter" || event.onClick == {SearchIcon}) {
       console.log("Running search for: ", searchData);
       setSearchData("");
 
@@ -120,7 +120,10 @@ export default function NavBar() {
           </Typography>
           <Search>
             <SearchIconWrapper>
-              <SearchIcon />
+                {/* <IconButton onClick={handleKeyDown}>
+                <SearchIcon />
+              </IconButton> */}
+              <SearchIcon onClick={handleKeyDown}/>
             </SearchIconWrapper>
             <StyledInputBase
               placeholder="Search…"
