@@ -60,7 +60,8 @@ export default function Navbar() {
 
 
   const [searchData, setSearchData] = useState("");
-  // const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
+  const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
+  // const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
   const [movies, setMovies] = useState([]);
 
 
@@ -164,9 +165,9 @@ export default function Navbar() {
     </Box>
 
         <Routes>
+          <Route index element={<Landing />} />
           <Route path="/NowPlaying" element={<NowPlaying />} />
           {/* <Route path="/Landing" element={<Landing/>} /> */}
-          <Route index element={<Landing />} />
         </Routes>
       </Router>
 

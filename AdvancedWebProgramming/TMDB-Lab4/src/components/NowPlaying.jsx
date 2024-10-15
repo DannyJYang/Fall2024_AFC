@@ -19,7 +19,9 @@ export default function NowPlaying() {
       params: { inlcude_adult: 'fase', language: "en-US", page: "1" },
       headers: {
         accept: "application/json",
-        Authorization: `Bearer ${VITE_TMDB_API_TOKEN}`,
+        Authorization: 
+        // `Bearer ${VITE_TMDB_API_TOKEN}`,
+        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWViYmUyNTg3OThjM2ZiODg5Yzg1NmQ2ZDQwNzExYyIsIm5iZiI6MTcyNzg4Mjk1MC4wMTExMjcsInN1YiI6IjY2ZmQ1NzJiZTI2YTUzYzEyMjU5NjE1YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-XredLRT2W3YRD6Bj7ZcpaYU2_rgnBIO0edPiBE70no'
       },
     };
     axios(options)
