@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, Grid }from '@mui/material/';
-import {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Routes, Navigate, useNavigate} from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios'
@@ -56,12 +56,10 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function Navbar() {
-
-
-
+  const navigate = useNavigate();
   const [searchData, setSearchData] = useState("");
-  const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
-  // const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
+  // const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
+  const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
   const [movies, setMovies] = useState([]);
 
 
@@ -69,64 +67,66 @@ export default function Navbar() {
     //update the searchData every time the user changes it
     setSearchData(event.target.value);
     console.log(searchData);
-    handleKeyDown(event.target.value);
+    // handleKeyDown(event.target.value);
   };
 
   const handleKeyDown = (event) => {
-    // if(event.metaKey && event.key === 'F4')
-    // console.log("running search for: ", searchData);
-    if (event.key === "Enter") {
-      console.log("Running search for: ", searchData);
-      setSearchData("");
-
-      const options = {
-        method: "GET",
-        url: "https://api.themoviedb.org/3/search/movie",
-        params: {
-          query: searchData,
-          include_adult: 'false',
-          language: "en-US",
-          page: "1",
-        },
-        headers: {
-          accept: "application/json",
-          Authorization:
-          // `Bearer ${VITE_TMDB_API_TOKEN}`
-            `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWViYmUyNTg3OThjM2ZiODg5Yzg1NmQ2ZDQwNzExYyIsIm5iZiI6MTcyNzg4Mjk1MC4wMTExMjcsInN1YiI6IjY2ZmQ1NzJiZTI2YTUzYzEyMjU5NjE1YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-XredLRT2W3YRD6Bj7ZcpaYU2_rgnBIO0edPiBE70no`,
-        }
-      };
-
-      axios(options)
-        .then((response) => {
-          console.log(response.data);
-          let movieArray = response.data.results.map((movie) => {
-            return (
-              <Grid item xs={3}>
-                <MovieCard
-                  film={movie}
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    justifyContent: "flex-start",
-                  }}
-                />
-              </Grid>
-            );
-          });
-          setMovies(movieArray)
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
+    if(event.key === 'Enter' && searchData.trim()) {
+      navigate('/Results', {state: {query: searchData}});
     }
+    // // if(event.metaKey && event.key === 'F4')
+    // // console.log("running search for: ", searchData);
+    // // if (event.key === "Enter") {
+    //   console.log("Running search for: ", searchData);
+    //   // setSearchData("");
+
+    //   const options = {
+    //     method: "GET",
+    //     url: "https://api.themoviedb.org/3/search/movie",
+    //     params: {
+    //       query: searchData,
+    //       include_adult: 'false',
+    //       language: "en-US",
+    //       page: "1",
+    //     },
+    //     headers: {
+    //       accept: "application/json",
+    //       Authorization:
+    //       `Bearer ${VITE_TMDB_API_TOKEN}`
+    //         // `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWViYmUyNTg3OThjM2ZiODg5Yzg1NmQ2ZDQwNzExYyIsIm5iZiI6MTcyNzg4Mjk1MC4wMTExMjcsInN1YiI6IjY2ZmQ1NzJiZTI2YTUzYzEyMjU5NjE1YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-XredLRT2W3YRD6Bj7ZcpaYU2_rgnBIO0edPiBE70no`,
+    //     }
+    //   };
+
+    //   axios(options)
+    //     .then((response) => {
+    //       console.log(response.data);
+    //       let movieArray = response.data.results.map((movie) => {
+    //         return (
+    //           <Grid item xs={3}>
+    //             <MovieCard
+    //               film={movie}
+    //               style={{
+    //                 display: "flex",
+    //                 flexWrap: "wrap",
+    //                 justifyContent: "flex-start",
+    //               }}
+    //             />
+    //           </Grid>
+    //         );
+    //       });
+    //       setMovies(movieArray)
+    //     })
+    //     .catch(function (error) {
+    //       console.error(error);
+    //     });
+    // // }
   };
 
   
   return (
     <>
-    <Router>
     <Box sx={{ flexGrow: 1, marginBottom: '15px'}}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>
 
           <Box sx={{ display: 'flex', flexGrow: 1 }}>
@@ -163,22 +163,13 @@ export default function Navbar() {
         </Toolbar>
       </AppBar>
     </Box>
-
-        <Routes>
-          <Route index element={<Landing />} />
-          <Route path="/NowPlaying" element={<NowPlaying />} />
-          {/* <Route path="/Landing" element={<Landing/>} /> */}
-        </Routes>
-      </Router>
-
-      <Grid
+        <Grid
         container
         spacing={3}
         sx={{ justifyContent: "space-around", alignItems: "flex-start" }}
       >
         {movies}
       </Grid>
-
     </>
   );
 }
