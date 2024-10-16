@@ -4,7 +4,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 
 export default function NowPlaying() {
-  const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
+  const VITE_TMDB_API_TOKEN = process.env.VITE_TMDB_API_TOKEN;
   const baseURL = `https://api.themoviedb.org/3`;
   const [movies, setMovies] = useState([]);
   const [searchData, setSearchData] = useState("");

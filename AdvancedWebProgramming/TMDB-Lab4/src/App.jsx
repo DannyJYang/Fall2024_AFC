@@ -21,16 +21,17 @@ function App() {
   document.body.style.backgroundPosition = "center";
   document.body.style.backgroundRepeat = "no-repeat";
   const [movies, setMovies] = useState([]);
+  const [searchData, setSearchData] = useState("")
 
   return (
     <>
       <Router>
-        <Navbar />
+        <Navbar searchData={searchData} setSearchData={setSearchData}/>
         <Routes>
           <Route index element={<Landing />} />
           <Route path="/NowPlaying" element={<NowPlaying />} />
           <Route path="/Landing" element={<Landing />} />
-          <Route path="/Results" element={<Results />} />
+          <Route path="/Results" element={<Results searchData={searchData}/>} />
           <Route path="/Error" element={<Error />} />
         </Routes>
       </Router>
