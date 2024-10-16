@@ -4,7 +4,7 @@ import axios from "axios";
 import MovieCard from "./MovieCard";
 
 export default function NowPlaying() {
-  const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
+  const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
   const baseURL = `https://api.themoviedb.org/3`;
   const [movies, setMovies] = useState([]);
   const [searchData, setSearchData] = useState("");
@@ -16,12 +16,11 @@ export default function NowPlaying() {
     const options = {
       method: "GET",
       url: "https://api.themoviedb.org/3/movie/now_playing",
-      params: { inlcude_adult: 'fase', language: "en-US", page: "1" },
+      params: { inlcude_adult: 'false', language: "en-US", page: "1" },
       headers: {
         accept: "application/json",
         Authorization: 
-        // `Bearer ${VITE_TMDB_API_TOKEN}`,
-        'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWViYmUyNTg3OThjM2ZiODg5Yzg1NmQ2ZDQwNzExYyIsIm5iZiI6MTcyNzg4Mjk1MC4wMTExMjcsInN1YiI6IjY2ZmQ1NzJiZTI2YTUzYzEyMjU5NjE1YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-XredLRT2W3YRD6Bj7ZcpaYU2_rgnBIO0edPiBE70no'
+        `Bearer ${VITE_TMDB_API_TOKEN}`,
       },
     };
     axios(options)

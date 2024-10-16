@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, Grid }from '@mui/material/';
-import {BrowserRouter as Router, Route, Link, Routes, Navigate, useNavigate} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Routes, useNavigate} from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import axios from 'axios'
@@ -56,77 +56,71 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 
 export default function Navbar() {
-  const navigate = useNavigate();
+
+
   const [searchData, setSearchData] = useState("");
-  // const { VITE_TMDB_API_TOKEN } = import.meta.env.VITE_TMDB_API_TOKEN;
   const { VITE_TMDB_API_TOKEN} = process.env.VITE_TMDB_API_TOKEN;
   const [movies, setMovies] = useState([]);
-
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
-    //update the searchData every time the user changes it
+    navigate('./Results')
     setSearchData(event.target.value);
-    console.log(searchData);
+
+    // console.log(searchData);
     // handleKeyDown(event.target.value);
   };
 
   const handleKeyDown = (event) => {
-    if(event.key === 'Enter' && searchData.trim()) {
-      navigate('/Results', {state: {query: searchData}});
+    if (event.key === "Enter") {
+      console.log("Running search for: ", searchData);
+      const options = {
+        method: "GET",
+        url: "https://api.themoviedb.org/3/search/movie",
+        params: {
+          query: searchData,
+          include_adult: 'false',
+          language: "en-US",
+          page: "1",
+        },
+        headers: {
+          accept: "application/json",
+          Authorization:
+          `Bearer ${VITE_TMDB_API_TOKEN}`
+        }
+      };
+
+      axios(options)
+        .then((response) => {
+          console.log(response.data);
+          let movieArray = response.data.results.map((movie) => {
+            return (
+              <Grid item xs={3}>
+                <MovieCard
+                  film={movie}
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "flex-start",
+                  }}
+                />
+              </Grid>
+            );
+          });
+          setMovies(movieArray)
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
     }
-    // // if(event.metaKey && event.key === 'F4')
-    // // console.log("running search for: ", searchData);
-    // // if (event.key === "Enter") {
-    //   console.log("Running search for: ", searchData);
-    //   // setSearchData("");
-
-    //   const options = {
-    //     method: "GET",
-    //     url: "https://api.themoviedb.org/3/search/movie",
-    //     params: {
-    //       query: searchData,
-    //       include_adult: 'false',
-    //       language: "en-US",
-    //       page: "1",
-    //     },
-    //     headers: {
-    //       accept: "application/json",
-    //       Authorization:
-    //       `Bearer ${VITE_TMDB_API_TOKEN}`
-    //         // `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3ZWViYmUyNTg3OThjM2ZiODg5Yzg1NmQ2ZDQwNzExYyIsIm5iZiI6MTcyNzg4Mjk1MC4wMTExMjcsInN1YiI6IjY2ZmQ1NzJiZTI2YTUzYzEyMjU5NjE1YiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-XredLRT2W3YRD6Bj7ZcpaYU2_rgnBIO0edPiBE70no`,
-    //     }
-    //   };
-
-    //   axios(options)
-    //     .then((response) => {
-    //       console.log(response.data);
-    //       let movieArray = response.data.results.map((movie) => {
-    //         return (
-    //           <Grid item xs={3}>
-    //             <MovieCard
-    //               film={movie}
-    //               style={{
-    //                 display: "flex",
-    //                 flexWrap: "wrap",
-    //                 justifyContent: "flex-start",
-    //               }}
-    //             />
-    //           </Grid>
-    //         );
-    //       });
-    //       setMovies(movieArray)
-    //     })
-    //     .catch(function (error) {
-    //       console.error(error);
-    //     });
-    // // }
   };
 
   
   return (
     <>
-    <Box sx={{ flexGrow: 1, marginBottom: '15px'}}>
-      <AppBar position="fixed">
+
+    <Box sx={{ flexGrow: 1, marginBottom: '40px'}}>
+      <AppBar position="sticky">
         <Toolbar>
 
           <Box sx={{ display: 'flex', flexGrow: 1 }}>
@@ -136,7 +130,8 @@ export default function Navbar() {
               component="div"
               sx={{ display: { xs: 'none', sm: 'block' }, mr: 2 }}
             >
-            <Link to ="/Landing">DMCA</Link>
+              <h3 onClick={() => navigate('./Landing')} style={{cursor:"pointer"}}>Home</h3>
+            {/* <Link to ="/Landing">DMCA</Link> */}
             </Typography>
             <Typography
               variant="h6"
@@ -144,7 +139,7 @@ export default function Navbar() {
               component="div"
               sx={{ display: { xs: 'none', sm: 'block' } }}
             >
-              <Link to ="/NowPlaying">Now Playing</Link>
+              <h3 onClick={() => navigate('./NowPlaying')} style={{cursor:"pointer"}}>Now Playing</h3>
             </Typography>
           </Box>
 
@@ -162,14 +157,24 @@ export default function Navbar() {
           </Search>
         </Toolbar>
       </AppBar>
-    </Box>
-        <Grid
+      <Grid
         container
         spacing={3}
         sx={{ justifyContent: "space-around", alignItems: "flex-start" }}
       >
         {movies}
       </Grid>
+
+    </Box>
+
+      {/* <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: "space-around", alignItems: "flex-start" }}
+      >
+        {movies}
+      </Grid> */}
+
     </>
   );
 }

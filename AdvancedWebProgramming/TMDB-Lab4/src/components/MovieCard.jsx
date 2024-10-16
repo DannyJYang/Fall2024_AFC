@@ -29,6 +29,9 @@ export default function MovieCard({film}) {
           <Typography variant="body2" style={{ color: 'text.secondary' ,maxHeight: '150px', overflow: "scroll" }}>
             {film.overview}
           </Typography>
+          <Typography variant="body2">
+            {film.rating}
+          </Typography>
         </CardContent>
       </CardActionArea>
     </Card>
