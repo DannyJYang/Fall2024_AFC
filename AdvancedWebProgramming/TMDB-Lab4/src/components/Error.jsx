@@ -1,7 +1,14 @@
-export default function Results () {
+
+
+export default function Error ({errorMessage}) {
+
+
+
+
     return (
         <>
-            <h1>No results found!</h1>
+            <h1>{errorMessage}
+            </h1>
         </>
     )
 }

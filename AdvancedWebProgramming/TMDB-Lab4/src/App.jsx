@@ -16,12 +16,9 @@ import Error from "./components/Error"
 
 function App() {
   // const { VITE_TMDB_API_TOKEN } = process.env
-  document.body.style.backgroundImage = `url(${backgroundImage})`;
-  document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundPosition = "center";
-  document.body.style.backgroundRepeat = "no-repeat";
   const [movies, setMovies] = useState([]);
   const [searchData, setSearchData] = useState("")
+  const [errorMessage, setErrorMessage] = useState("");
 
   return (
     <>
@@ -31,8 +28,8 @@ function App() {
           <Route index element={<Landing />} />
           <Route path="/NowPlaying" element={<NowPlaying />} />
           <Route path="/Landing" element={<Landing />} />
-          <Route path="/Results" element={<Results searchData={searchData}/>} />
-          <Route path="/Error" element={<Error />} />
+          <Route path="/Results" element={<Results searchData={searchData} setErrorMessage={setErrorMessage} />} />
+          <Route path="/Error" element={<Error errorMessage={errorMessage} />} />
         </Routes>
       </Router>
     </>

@@ -26,7 +26,10 @@ export default function MovieCard({film}) {
           <Typography gutterBottom variant="h5" component="div" >
             {film.title}
           </Typography>
-          <Typography variant="body2" style={{ color: 'text.secondary' ,maxHeight: '150px', overflow: "scroll" }}>
+          <Typography gutterBottom variant="h7" component="div" >
+            Ratings: {film.vote_average} / 10
+          </Typography>
+          <Typography variant="body2" style={{ color: 'text.secondary' ,maxHeight: '200px', overflow: "scroll" }}>
             {film.overview}
           </Typography>
           <Typography variant="body2">

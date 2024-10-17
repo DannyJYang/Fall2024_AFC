@@ -49,18 +49,16 @@ export default function Navbar({ searchData, setSearchData }) {
   const navigate = useNavigate();
 
   const handleChange = (event) => {
-    if(searchData === "") {
-      navigate('/NowPlaying');
-    }
     setSearchData(event.target.value);
     navigate('/Results');
   };
-
   // const handleKeyDown = (event) => {
-  //   if (event.key === "Enter" && searchData) {
+  //   if(event.key === "Enter") {
+  //     console.log("moving")
   //     navigate('/Results');
   //   }
-  // };
+  // }
+
 
   return (
     <Box sx={{ flexGrow: 1, marginBottom: '40px' }}>
