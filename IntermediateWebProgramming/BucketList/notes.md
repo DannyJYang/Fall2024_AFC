@@ -39,6 +39,9 @@ Create:
 3) Send back what was put into the database (could be correct, could be incorrect)
 4) One object - DATA (id, description, is_complete), receipt from database
 
+When we send data from client to server, we generally send as POST request
+Sent through the "body"
+
 Delete:
 1) Route - /api/items/<unique>, DELETE method
 2) JSON
