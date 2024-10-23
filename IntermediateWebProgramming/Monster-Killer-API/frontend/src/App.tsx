@@ -1,35 +1,64 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+// import React, {useState} from 'react'
+import * as React from 'react';
+import {FormEvent, useState} from "react";
 import './App.css'
+import {Box, Button, styled, TextField} from "@mui/material";
+import {brown} from "@mui/material/colors";
+import {getMonster} from "./components/monsterService.ts";
 
 function App() {
-  const [count, setCount] = useState(0)
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const [monsterInput, setMonsterInput] = useState("")
+    const [weaponInput, setWeaponInput] = useState("")
+    const [monsterInfo, setMonsterInfo] = useState([]);
+
+    const ColorButton = styled(Button)(({ theme }) => ({
+        color: theme.palette.getContrastText(brown[500]),
+        // margin: "0px !important",
+        // padding: "0px",
+        backgroundColor: brown[500],
+        '&:hover': {
+            backgroundColor:
+                brown[300],
+        },
+    }));
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        console.log(getMonster(monsterInput));
+        const monsters = await getMonster(monsterInput)
+        setMonsterInfo(monsters);
+
+    }
+
+
+    return (
+        <>
+            <h1>Monster Killer API</h1>
+            <Box
+                component="form"
+                sx={{'& > :not(style)': {m: 1, width: '25ch'}}}
+                noValidate
+                autoComplete="off"
+                onSubmit={handleSubmit}
+            >
+                <TextField id="monsterInput" label="Monster Name" variant="filled" value={monsterInput}
+                onChange={(e) => setMonsterInput(e.target.value)}/>
+                <TextField id="weaponInput" label="Weapon" variant="filled" value={weaponInput}
+                onChange={(e) => setWeaponInput(e.target.value)}/>
+                {/*<Button variant="contained" color="secondary">Search</Button>*/}
+                <ColorButton type='submit' size="small" variant='contained'>Button</ColorButton>
+            </Box>
+            <div>
+                {monsterInfo.length > 0 ? (
+                    monsterInfo.map((monster) => (
+                        <div key={monster.name}>{monster.name}</div>
+                    ))
+                ) : (
+                    <p>No monster found.</p>
+                )}
+            </div>
+        </>
+    )
 }
 
 export default App
