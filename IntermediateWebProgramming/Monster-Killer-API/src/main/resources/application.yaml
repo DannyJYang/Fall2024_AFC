@@ -1,0 +1,20 @@
+# We have updated this configuration to point at the docker postgres instance
+# Credentials must match the docker compose file
+# Look in the Test / Resource directory for the testing application.yaml
+spring:
+  application:
+    name: monster_killer
+
+  datasource:
+    url: jdbc:postgresql://localhost:5440/monster_killer
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: admin
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
