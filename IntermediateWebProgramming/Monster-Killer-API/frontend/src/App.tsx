@@ -5,6 +5,7 @@ import './App.css'
 import {Box, Button, styled, TextField} from "@mui/material";
 import {brown} from "@mui/material/colors";
 import {getMonster} from "./components/monsterService.ts";
+import {Monster} from "./components/type.ts";
 
 function App() {
 
@@ -50,8 +51,19 @@ function App() {
             </Box>
             <div>
                 {monsterInfo.length > 0 ? (
-                    monsterInfo.map((monster) => (
-                        <div key={monster.name}>{monster.name}</div>
+                    monsterInfo.map((monster: Monster) => (
+                        <>
+                        <div>{monster.name}</div>
+                            <div>{monster.id}</div>
+                            {/*<div>{monster.weaknesses.length > 0 (*/}
+                            {/*    monster.weaknesses.map((weakness) => {*/}
+                            {/*        <>*/}
+                            {/*            <div>{weakness.element} {weakness.stars}</div>*/}
+                            {/*        </>*/}
+                            {/*    })*/}
+                            {/*)}</div>*/}
+                        {/*<div>{monster.weaknesses}</div>*/}
+                        </>
                     ))
                 ) : (
                     <p>No monster found.</p>
