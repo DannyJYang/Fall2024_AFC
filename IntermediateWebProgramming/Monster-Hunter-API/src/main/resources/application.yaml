@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: monster
+
+  datasource:
+    url: jdbc:postgresql://localhost:5450/monster_hunter_API
+    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: admin
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    jpa:
+      generate-ddl: false
+      hibernate:
+        ddl-auto: none
+  server:
+    port: 8080
