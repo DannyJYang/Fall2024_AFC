@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {FormEvent, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import {Box, Button, styled, TextField} from "@mui/material";
 import {brown} from "@mui/material/colors";
 import {getMonster} from "../monsterService.ts";
 import {Monster} from "../type.ts";
 
 
-export default function SearchPage () {
-    const [monsterInput, setMonsterInput] = useState("")
-    const [weaponInput, setWeaponInput] = useState("")
+export default function SearchPage ({searchInput, setSearchInput}) {
+    // const [monsterInput, setMonsterInput] = useState("")
+    // const [weaponInput, setWeaponInput] = useState("")
     const [monsterInfo, setMonsterInfo] = useState([]);
 
     const ColorButton = styled(Button)(({ theme }) => ({
@@ -23,11 +23,15 @@ export default function SearchPage () {
     }));
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(getMonster(monsterInput));
-        const monsters = await getMonster(monsterInput)
+        console.log(getMonster(searchInput));
+        const monsters = await getMonster(searchInput)
         setMonsterInfo(monsters);
     }
 
+
+    useEffect(() => {
+
+    }, [searchInput])
 
     return (
         <>
@@ -39,8 +43,8 @@ export default function SearchPage () {
                 autoComplete="off"
                 onSubmit={handleSubmit}
             >
-                <TextField id="monsterInput" label="Monster Name" variant="filled" value={monsterInput}
-                           onChange={(e) => setMonsterInput(e.target.value)}/>
+                <TextField id="monsterInput" label="Monster Name" variant="filled" value={searchInput}
+                           onChange={(e) => setSearchInput(e.target.value)}/>
                 {/*<TextField id="weaponInput" label="Weapon" variant="filled" value={weaponInput}*/}
                 {/*           onChange={(e) => setWeaponInput(e.target.value)}/>*/}
                 {/*<Button variant="contained" color="secondary">Search</Button>*/}

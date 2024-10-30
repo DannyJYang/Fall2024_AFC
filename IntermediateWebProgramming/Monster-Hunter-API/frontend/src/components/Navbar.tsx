@@ -1,20 +1,19 @@
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
-import MenuIcon from '@mui/icons-material/Menu';
+import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Autocomplete} from '@mui/material/';
+import monsterNameAutoComplete from '../helper.ts'
+// import Badge from '@mui/material/Badge';
+// import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import MoreIcon from '@mui/icons-material/MoreVert';
+// import AccountCircle from '@mui/icons-material/AccountCircle';
+// import MailIcon from '@mui/icons-material/Mail';
+// import NotificationsIcon from '@mui/icons-material/Notifications';
+// import MoreIcon from '@mui/icons-material/MoreVert';
 import {useNavigate} from "react-router-dom";
-import {Icon} from "@mui/material";
+// import {Icon} from "@mui/material";
+// import LandingPage from "./pages/LandingPage.tsx";
+import {useState} from "react";
+import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -56,8 +55,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 
-export default function PrimarySearchAppBar() {
+
+export default function Navbar({searchInput, setSearchInput}) {
     const navigate = useNavigate();
+    // @ts-ignore
+    const handleSearchInput = (event) => {
+        setLocalInput(event.target.value)
+        setSearchInput(event.target.value)
+        console.log(searchInput)
+    }
+    const [localInput, setLocalInput] = useState("");
 
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -66,12 +73,12 @@ export default function PrimarySearchAppBar() {
 
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
                         <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
-                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
-                                <img src="../assets/Monster-Hunter-Emblem.png"/>
+                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 1, marginTop:"5px" }} onClick={() => navigate('./LandingPage')}>
+                                <img src={MonsterHunterLogo} style={{width: '96px', height: "auto"}} />
                             </IconButton>
                         </Typography>
                         <Typography variant="h6" noWrap component="div">
-                            <h3 onClick={() => navigate('./NowPlaying')} style={{ cursor: "pointer" }}>Favorites</h3>
+                            <h3 onClick={() => navigate('./FavoritePage')} style={{ cursor: "pointer" }}>Favorites</h3>
                         </Typography>
                     </Box>
 
@@ -79,9 +86,32 @@ export default function PrimarySearchAppBar() {
                         <SearchIconWrapper>
                             <SearchIcon />
                         </SearchIconWrapper>
-                        <StyledInputBase
-                            placeholder="Search Monster Here"
-                            inputProps={{ 'aria-label': 'search' }}
+                        {/*<StyledInputBase*/}
+                        {/*    placeholder="Search Monster Here"*/}
+                        {/*    inputProps={{ 'aria-label': 'search' }}*/}
+                        {/*    // value={searchInput}*/}
+                        {/*    onChange={handleSearchInput}*/}
+                        {/*    value={localInput}*/}
+                        {/*    onKeyDown={(event) => {*/}
+                        {/*        if(event.key === 'Enter') {*/}
+                        {/*            event.preventDefault();*/}
+                        {/*            setLocalInput("")*/}
+                        {/*            navigate('./SearchPage')*/}
+                        {/*    }}}*/}
+                        {/*/>*/}
+                        <Autocomplete
+                            disablePortal
+                            options={monsterNameAutoComplete}
+                            sx={{ width: 300 }}
+                            renderInput={(params) => <TextField {...params} label="Search Monster Here" />}
+                            onChange={handleSearchInput}
+                            value={localInput}
+                            onKeyDown={(event) => {
+                                if(event.key === 'Enter') {
+                                    event.preventDefault();
+                                    setLocalInput("")
+                                    navigate('./SearchPage')
+                                }}}
                         />
                     </Search>
 
