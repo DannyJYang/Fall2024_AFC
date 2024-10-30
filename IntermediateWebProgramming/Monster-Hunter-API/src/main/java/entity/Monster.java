@@ -14,8 +14,15 @@ import lombok.Setter;
 @Table(name="monster")
 public class Monster {
 
-    @id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    private Long id;
+
+    private String name;
+    private String icon;
+    private String weaknessChart;
+
+
+
 
 
 
