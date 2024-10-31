@@ -25,14 +25,14 @@ DATA
 Must be CRUD Functional (create, read, update, delete)
 
 Read:
-1) Route - /api/items GET method
+1) Route - /api/todos GET method
 1.5) Get data from DB
 2) JSON
 3) Everything
 4) Array of objects
 
 Create:
-1) Route - /api/items POST method
+1) Route - /api/todos POST method
 1.5) Get data from client
 1.75) Database sends something back
 2) JSON -> client
