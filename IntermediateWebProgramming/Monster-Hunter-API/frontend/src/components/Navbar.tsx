@@ -58,14 +58,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Navbar({searchInput, setSearchInput}) {
     const navigate = useNavigate();
-    // @ts-ignore
-    const handleSearchInput = (event) => {
-        setLocalInput(event.target.value)
-        setSearchInput(event.target.value)
-        console.log(searchInput)
-    }
     const [localInput, setLocalInput] = useState("");
+    // @ts-ignore
+    const handleSearchInput = (event: any, newValue: string) => {
+        setLocalInput(newValue)
+        setSearchInput(newValue)
+        console.log(newValue)
+    }
 
+    // @ts-ignore
+    // @ts-ignore
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -100,12 +102,12 @@ export default function Navbar({searchInput, setSearchInput}) {
                         {/*    }}}*/}
                         {/*/>*/}
                         <Autocomplete
+                            value={localInput}
+                            onChange={handleSearchInput}
                             disablePortal
                             options={monsterNameAutoComplete}
-                            sx={{ width: 300 }}
+                            sx={{ width: 400 }}
                             renderInput={(params) => <TextField {...params} label="Search Monster Here" />}
-                            onChange={handleSearchInput}
-                            value={localInput}
                             onKeyDown={(event) => {
                                 if(event.key === 'Enter') {
                                     event.preventDefault();
