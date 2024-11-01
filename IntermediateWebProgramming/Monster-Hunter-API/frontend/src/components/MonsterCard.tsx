@@ -9,8 +9,6 @@ const MonsterCard: Monster = ({monster}) => {
 
     return (
         <>
-            <h1>I am Monster Card!</h1>
-
             <Card sx={{maxWidth: 345, height: 550}}>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div" >
@@ -24,7 +22,7 @@ const MonsterCard: Monster = ({monster}) => {
                     height="auto"
                     image={imageRoute ? imageRoute : MonsterHunterEmblem}
                 />
-                <Typography variant="body2" style={{color: 'text.secondary', minHeight: 80,maxHeight: 140, overflow: "auto"}}>
+                <Typography variant="body2" style={{color: 'text.secondary', minHeight: 80, maxHeight: 130,overflow: "auto"}}>
                     {monster.description}
                 </Typography>
             </Card>

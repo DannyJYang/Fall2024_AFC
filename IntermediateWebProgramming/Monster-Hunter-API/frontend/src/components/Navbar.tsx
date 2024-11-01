@@ -31,15 +31,15 @@ const Search = styled('div')(({ theme }) => ({
     },
 }));
 
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-    padding: theme.spacing(0, 2),
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-}));
+// const SearchIconWrapper = styled('div')(({ theme }) => ({
+//     padding: theme.spacing(0, 2),
+//     height: '100%',
+//     position: 'absolute',
+//     pointerEvents: 'none',
+//     display: 'flex',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+// }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
     color: 'inherit',
@@ -70,7 +70,7 @@ export default function Navbar({searchInput, setSearchInput}) {
     // @ts-ignore
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
+            <AppBar position="sticky">
                 <Toolbar>
 
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
@@ -85,9 +85,9 @@ export default function Navbar({searchInput, setSearchInput}) {
                     </Box>
 
                     <Search>
-                        <SearchIconWrapper>
-                            <SearchIcon />
-                        </SearchIconWrapper>
+                        {/*<SearchIconWrapper>*/}
+                        {/*    <SearchIcon />*/}
+                        {/*</SearchIconWrapper>*/}
                         {/*<StyledInputBase*/}
                         {/*    placeholder="Search Monster Here"*/}
                         {/*    inputProps={{ 'aria-label': 'search' }}*/}
