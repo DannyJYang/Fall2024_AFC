@@ -14,31 +14,32 @@ const DemoPaper = styled(Paper)(({theme}) => ({
 export default function FavoritePage() {
     return (
         <>
-            <Stack direction="row" spacing={3} marginTop={'3vh'} marginBottom={'3vh'}>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
+            <Stack direction="column" spacing={'3vh'} marginTop={'3vh'}>
+                <Stack direction="row" spacing={3}>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                </Stack>
+                <Stack direction="row" spacing={3}>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                </Stack>
+                <Stack direction="row" spacing={3} >
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                </Stack>
+                <Stack direction="row" spacing={3} >
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                    <DemoPaper variant="outlined">outlined variant</DemoPaper>
+                </Stack>
             </Stack>
-            <Stack direction="row" spacing={3} marginBottom={'3vh'}>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-            </Stack>
-            <Stack direction="row" spacing={3} marginBottom={'3vh'}>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-            </Stack>
-            <Stack direction="row" spacing={3} marginBottom={'3vh'}>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-                <DemoPaper variant="outlined">outlined variant</DemoPaper>
-            </Stack>
-
 
         </>
     )

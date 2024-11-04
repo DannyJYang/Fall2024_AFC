@@ -31,29 +31,19 @@ const Search = styled('div')(({ theme }) => ({
     },
 }));
 
-// const SearchIconWrapper = styled('div')(({ theme }) => ({
-//     padding: theme.spacing(0, 2),
-//     height: '100%',
-//     position: 'absolute',
-//     pointerEvents: 'none',
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center',
+// const StyledInputBase = styled(InputBase)(({ theme }) => ({
+//     color: 'inherit',
+//     '& .MuiInputBase-input': {
+//         padding: theme.spacing(1, 1, 1, 0),
+//         // vertical padding + font size from searchIcon
+//         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+//         transition: theme.transitions.create('width'),
+//         width: '100%',
+//         [theme.breakpoints.up('md')]: {
+//             width: '20ch',
+//         },
+//     },
 // }));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'inherit',
-    '& .MuiInputBase-input': {
-        padding: theme.spacing(1, 1, 1, 0),
-        // vertical padding + font size from searchIcon
-        paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: '20ch',
-        },
-    },
-}));
 
 
 export default function Navbar({searchInput, setSearchInput}) {
@@ -63,20 +53,18 @@ export default function Navbar({searchInput, setSearchInput}) {
     const handleSearchInput = (event: any, newValue: string) => {
         setLocalInput(newValue)
         setSearchInput(newValue)
-        console.log(newValue)
+        // console.log(newValue)
     }
 
-    // @ts-ignore
     // @ts-ignore
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="sticky">
                 <Toolbar>
-
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
                         <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
-                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 1, marginTop:"5px" }} onClick={() => navigate('./LandingPage')}>
-                                <img src={MonsterHunterLogo} style={{width: '96px', height: "auto"}} />
+                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 1, marginTop:"6px" }} onClick={() => navigate('./LandingPage')}>
+                                <img src={MonsterHunterLogo} alt="Monster Hunter Logo" style={{width: '96px', height: "auto"}} />
                             </IconButton>
                         </Typography>
                         <Typography variant="h6" noWrap component="div">

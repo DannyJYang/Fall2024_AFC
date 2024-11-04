@@ -27,26 +27,20 @@ export default function SearchPage({searchInput, setSearchInput}) {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (!searchInput) return; //prevents API call if input is empty
-        console.log(getMonster(searchInput));
+        // console.log(getMonster(searchInput));
         const monsters = await getMonster(searchInput)
         if (monsters.length > 0) {
             const monsterSingle = monsters[0];
             console.log("Monster Single: ", monsterSingle)
             // @ts-ignore
-            console.log(monsterSingle.name)
-            console.log(monsterSingle.description)
+            // console.log(monsterSingle.name)
+            // console.log(monsterSingle.description)
             setMonsterCard(<MonsterCard monster={monsterSingle}/>);
         } else {
             // @ts-ignore
             setMonsterCard(null); // Reset if no monster found
         }
-
     }
-
-
-    useEffect(() => {
-
-    }, [searchInput])
 
     return (
         <>
@@ -68,9 +62,12 @@ export default function SearchPage({searchInput, setSearchInput}) {
                 {/*<Button variant="contained" color="secondary">Search</Button>*/}
                 <ColorButton type='submit' size="small" variant='contained'>Search</ColorButton>
             </Box>
-            <div>
-                {monsterCard ? monsterCard : <p>No Monster Found</p>}
-            </div>
+
+            <Box>
+                <div className="row">
+                    {monsterCard ? monsterCard : <p>No Monster Found</p>}
+                </div>
+            </Box>
         </>
     )
 }
