@@ -11,16 +11,16 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name="monster")
+@Table(name="monster_table")
 public class Monster {
 
     @Id
+    @Column(name = "id")
     private Long id;
-
+    @Column(name = "name")
     private String name;
-    private String icon;
-    private String weaknessChart;
-
+    @Column(name = "is_favorite")
+    private boolean isFavorite;
 
 
 

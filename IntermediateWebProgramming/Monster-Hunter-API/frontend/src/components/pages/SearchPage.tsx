@@ -1,10 +1,11 @@
 import * as React from 'react';
 import {FormEvent, useEffect, useState} from "react";
-import {Box, Button, styled, TextField} from "@mui/material";
+import {Box, Button, Grid, styled, TextField} from "@mui/material";
 import {brown} from "@mui/material/colors";
 import {getMonster} from "../monsterService.ts";
 import {Monster} from "../type.ts";
 import MonsterCard from "../MonsterCard.tsx";
+import WeaknessCard from "../WeaknessCard.tsx";
 
 const ColorButton = styled(Button)(({theme}) => ({
     color: theme.palette.getContrastText(brown[500]),
@@ -23,6 +24,8 @@ export default function SearchPage({searchInput, setSearchInput}) {
     // const [weaponInput, setWeaponInput] = useState("")
     // const [monsterInfo, setMonsterInfo] = useState([]);
     const [monsterCard, setMonsterCard] = useState();
+    const [weaknessCard, setWeaknessCard] = useState();
+    const [weaknessChart, setWeaknessChart] = useState();
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -36,6 +39,8 @@ export default function SearchPage({searchInput, setSearchInput}) {
             // console.log(monsterSingle.name)
             // console.log(monsterSingle.description)
             setMonsterCard(<MonsterCard monster={monsterSingle}/>);
+            setWeaknessCard(<WeaknessCard monster={monsterSingle}/>);
+            setWeaknessChart(`../src/assets/weaknessChart/${monsterSingle.name}.png`);
         } else {
             // @ts-ignore
             setMonsterCard(null); // Reset if no monster found
@@ -64,9 +69,20 @@ export default function SearchPage({searchInput, setSearchInput}) {
             </Box>
 
             <Box>
-                <div className="row">
-                    {monsterCard ? monsterCard : <p>No Monster Found</p>}
-                </div>
+                <Grid container spacing={7}>
+                    <Grid item>
+                        {monsterCard ? monsterCard : <p>No Monster Found</p>}
+                    </Grid>
+
+                    <Grid item>
+                        {weaknessCard ? weaknessCard : <p>IT HAS NO WEAKNESS? IT'S TOO POWERFUL!</p>}
+                    </Grid>
+
+                    <Grid item>
+                        {/*<img src="../src/assets/weaknessChart/Rathalos.png" alt="" width="850px" height="auto"/>*/}
+                        <img src={weaknessChart} alt="" width="850px" height="auto"/>
+                    </Grid>
+                </Grid>
             </Box>
         </>
     )
