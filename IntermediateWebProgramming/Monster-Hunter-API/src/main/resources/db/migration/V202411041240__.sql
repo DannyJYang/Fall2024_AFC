@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS monster_table;
+
 CREATE TABLE monster_table
 (
     id          BIGINT NOT NULL,

@@ -1,15 +1,15 @@
 package controller;
 
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import entity.Monster;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 import service.MonsterService;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/api")
-@CrossOrigin
+@RequestMapping("/api/monster")
+//@CrossOrigin(origins = "*")
 public class MonsterController {
 
     private final MonsterService monsterService;
@@ -18,5 +18,25 @@ public class MonsterController {
         this.monsterService = monsterService;
     }
 
-    @GetMapping("/")
+    @GetMapping()
+    public List<Monster> fetchMonsters() {
+        return monsterService.findAllMonster();
+    }
+
+    @GetMapping("/favorites")
+    public List<Monster> fetchFavoriteMonsters() {
+        return monsterService.findFavoriteMonsters();
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Monster> updateFavoriteStatus (@PathVariable("id") Long id) {
+        Monster updatedMonster = monsterService.changeFavorite(id);
+        return ResponseEntity.ok(updatedMonster);
+    }
+
+    @GetMapping("/favoritestatus/{id}")
+    public Boolean getFavoriteStatus (@PathVariable("id") Long id) {
+        return monsterService.getFavoriteStatus(id);
+    }
+
 }

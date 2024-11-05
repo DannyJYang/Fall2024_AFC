@@ -2,16 +2,8 @@ import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Autocomplete} from '@mui/material/';
 import monsterNameAutoComplete from '../helper.ts'
-// import Badge from '@mui/material/Badge';
-// import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
-// import AccountCircle from '@mui/icons-material/AccountCircle';
-// import MailIcon from '@mui/icons-material/Mail';
-// import NotificationsIcon from '@mui/icons-material/Notifications';
-// import MoreIcon from '@mui/icons-material/MoreVert';
 import {useNavigate} from "react-router-dom";
-// import {Icon} from "@mui/material";
-// import LandingPage from "./pages/LandingPage.tsx";
 import {FormEvent, useState} from "react";
 import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
 
@@ -36,12 +28,10 @@ export default function Navbar({searchInput, setSearchInput}) {
     const [localInput, setLocalInput] = useState("");
 
     // @ts-ignore
-    const handleSearchInput = (event: any, newValue: string) => {
+    const handleSearchInput = (event: React.ChangeEvent<{}>, newValue: string) => {
         setLocalInput(newValue)
         setSearchInput(newValue)
-        // console.log(newValue)
     }
-
 
     // @ts-ignore
     return (

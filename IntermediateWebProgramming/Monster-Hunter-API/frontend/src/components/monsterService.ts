@@ -15,3 +15,29 @@ export const getMonster = async (monsterName: string): Promise<Monster[]> => {
         return [];
     }
 }
+
+export const updateFavoriteStatus = async (id) => {
+    try {
+        console.log("I am in update favorite status!!")
+        const response = axios.put(`http://localhost:8080/api/monster/${id}`).then(response => response.data);
+        return response;
+    }catch (e){
+        console.log("Issues updating the favorite status: ", e);
+    }
+}
+
+export const getAllFavoriteMonsters = async () => {
+    try {
+        return axios.get('http://localhost:8080/api/monster/favorites').then(response => response.data);
+    }catch(e){
+        console.error("Fetch request failed for getting all favorite monsters: ", e);
+    }
+}
+
+export const getFavoriteStatus = async (id:number) => {
+    try {
+        return axios.get(`http://localhost:8080/api/monster/favoritestatus/${id}`)
+    }catch (e) {
+        console.log("error catching favorite status of monster", e);
+    }
+}
