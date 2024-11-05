@@ -1,6 +1,6 @@
-package repository;
+package com.example.Monster_Hunter_API.repository;
 
-import entity.Monster;
+import com.example.Monster_Hunter_API.entity.Monster;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

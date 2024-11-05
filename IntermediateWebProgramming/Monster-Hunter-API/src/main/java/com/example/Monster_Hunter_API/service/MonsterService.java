@@ -1,9 +1,8 @@
-package service;
+package com.example.Monster_Hunter_API.service;
 
-import entity.Monster;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.Monster_Hunter_API.entity.Monster;
 import org.springframework.stereotype.Service;
-import repository.MonsterRepository;
+import com.example.Monster_Hunter_API.repository.MonsterRepository;
 
 import java.util.ArrayList;
 import java.util.List;

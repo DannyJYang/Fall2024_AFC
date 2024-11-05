@@ -1,4 +1,4 @@
-package entity;
+package com.example.Monster_Hunter_API.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

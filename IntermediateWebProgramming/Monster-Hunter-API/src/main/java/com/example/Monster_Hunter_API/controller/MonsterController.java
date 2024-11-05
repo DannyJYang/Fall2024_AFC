@@ -1,9 +1,9 @@
-package controller;
+package com.example.Monster_Hunter_API.controller;
 
-import entity.Monster;
+import com.example.Monster_Hunter_API.entity.Monster;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.MonsterService;
+import com.example.Monster_Hunter_API.service.MonsterService;
 
 import java.util.List;
 
