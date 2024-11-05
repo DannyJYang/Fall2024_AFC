@@ -12,7 +12,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from "react-router-dom";
 // import {Icon} from "@mui/material";
 // import LandingPage from "./pages/LandingPage.tsx";
-import {useState} from "react";
+import {FormEvent, useState} from "react";
 import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
 
 const Search = styled('div')(({ theme }) => ({
@@ -31,24 +31,10 @@ const Search = styled('div')(({ theme }) => ({
     },
 }));
 
-// const StyledInputBase = styled(InputBase)(({ theme }) => ({
-//     color: 'inherit',
-//     '& .MuiInputBase-input': {
-//         padding: theme.spacing(1, 1, 1, 0),
-//         // vertical padding + font size from searchIcon
-//         paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-//         transition: theme.transitions.create('width'),
-//         width: '100%',
-//         [theme.breakpoints.up('md')]: {
-//             width: '20ch',
-//         },
-//     },
-// }));
-
-
 export default function Navbar({searchInput, setSearchInput}) {
     const navigate = useNavigate();
     const [localInput, setLocalInput] = useState("");
+
     // @ts-ignore
     const handleSearchInput = (event: any, newValue: string) => {
         setLocalInput(newValue)
@@ -56,10 +42,11 @@ export default function Navbar({searchInput, setSearchInput}) {
         // console.log(newValue)
     }
 
+
     // @ts-ignore
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="sticky">
+            <AppBar position="sticky" style={{marginBottom: "3vh"}}>
                 <Toolbar>
                     <Box sx={{ display: 'flex', flexGrow: 1 }}>
                         <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
@@ -73,22 +60,6 @@ export default function Navbar({searchInput, setSearchInput}) {
                     </Box>
 
                     <Search>
-                        {/*<SearchIconWrapper>*/}
-                        {/*    <SearchIcon />*/}
-                        {/*</SearchIconWrapper>*/}
-                        {/*<StyledInputBase*/}
-                        {/*    placeholder="Search Monster Here"*/}
-                        {/*    inputProps={{ 'aria-label': 'search' }}*/}
-                        {/*    // value={searchInput}*/}
-                        {/*    onChange={handleSearchInput}*/}
-                        {/*    value={localInput}*/}
-                        {/*    onKeyDown={(event) => {*/}
-                        {/*        if(event.key === 'Enter') {*/}
-                        {/*            event.preventDefault();*/}
-                        {/*            setLocalInput("")*/}
-                        {/*            navigate('./SearchPage')*/}
-                        {/*    }}}*/}
-                        {/*/>*/}
                         <Autocomplete
                             value={localInput}
                             onChange={handleSearchInput}

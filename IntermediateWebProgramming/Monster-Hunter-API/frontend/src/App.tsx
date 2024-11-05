@@ -9,7 +9,7 @@ import ErrorPage from "./components/pages/ErrorPage.tsx";
 import FavoritePage from "./components/pages/FavoritePage.tsx";
 import {useEffect, useRef, useState} from "react";
 import theme from "./components/ui/theme.tsx"
-import {ThemeProvider} from "@mui/material";
+import {Button, ThemeProvider} from "@mui/material";
 import backgroundMusic from "./assets/BackgroundMusic.mp3"
 
 
@@ -65,9 +65,9 @@ function App() {
                     Your browser does not support the audio element.
                 </audio>
                 <div>
-                    {/*<button onClick={togglePlay}>*/}
-                    {/*    {isPlaying ? 'Pause' : 'Play'}*/}
-                    {/*</button>*/}
+                    <Button onClick={togglePlay}>
+                        {isPlaying ? 'Pause' : 'Play'}
+                    </Button>
                     <input
                         type="range"
                         min="0"
