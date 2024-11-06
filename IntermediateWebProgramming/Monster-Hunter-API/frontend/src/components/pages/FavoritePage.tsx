@@ -2,6 +2,8 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
 import {styled} from '@mui/material/styles';
+import {useEffect, useState} from "react";
+import {getAllFavoriteMonsters} from "../monsterService.ts";
 
 const DemoPaper = styled(Paper)(({theme}) => ({
     width: 120,
@@ -12,6 +14,22 @@ const DemoPaper = styled(Paper)(({theme}) => ({
 }));
 
 export default function FavoritePage() {
+
+    const [favoriteMonsters, setFavoriteMonsters] = useState([]);
+
+    const fetchFavoriteMonsters = async () => {
+        const temp = await getAllFavoriteMonsters();
+        console.log(temp);
+        setFavoriteMonsters(temp);
+    }
+
+    useEffect(() => {
+        fetchFavoriteMonsters();
+    }, [favoriteMonsters])
+
+
+
+
     return (
         <>
             <Stack direction="column" spacing={'3vh'} marginTop={'3vh'}>

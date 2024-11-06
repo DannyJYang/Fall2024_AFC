@@ -6,19 +6,39 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from "@mui/icons-material/Star";
 import {Grid} from "@mui/material";
 import {updateFavoriteStatus, getFavoriteStatus} from "./monsterService.ts";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
+import * as React from "react";
 
 
 // @ts-ignore
 const MonsterCard: Monster = ({monster}) => {
     let imageRoute = `../src/assets/icon/${monster.id}_icon.webp`
     console.log(imageRoute)
+    const [isFavorite, setIsFavorite] = useState<boolean>(false)
 
     const handleClick = async () => {
-        const monsterId = monster.id;
-        const updatedMonster = await updateFavoriteStatus(monsterId);
-        console.log(updatedMonster);
+        const updatedMonsterFavoriteStatus = await updateFavoriteStatus(monster.id);
+        setIsFavorite(updatedMonsterFavoriteStatus);  // Update state based on the new favorite status
+        console.log(updatedMonsterFavoriteStatus);
     }
+
+
+    useEffect(() => {
+        const fetchFavoriteStatus = async () => {
+            const status: any = await getFavoriteStatus(monster.id);
+            console.log(status)
+            setIsFavorite(status);
+        }
+        fetchFavoriteStatus();
+    }, [monster.id, isFavorite])
+
+    const favoriteIconDecider = () => {
+        return isFavorite ? (
+            <FavoriteIcon fontSize='large' style={{ cursor: 'pointer' }} onClick={handleClick} />
+        ) : (
+            <FavoriteBorderIcon fontSize='large' style={{ cursor: 'pointer' }} onClick={handleClick} />
+        );
+    };
 
 
     return (
@@ -37,7 +57,9 @@ const MonsterCard: Monster = ({monster}) => {
                         <Grid item xs={1}></Grid>
 
                         <Grid item xs={1}>
-                            <FavoriteBorderIcon fontSize="large" style={{cursor:"pointer"}} onClick={handleClick}/>
+                            {/*{getFavoriteStatus(monster.id) == true ? <img src={weaknessChart} alt='Weakness Chart' width="850px" height="auto" /> : null}*/}
+                            {/*<FavoriteBorderIcon fontSize="large" style={{cursor:"pointer"}} onClick={handleClick}/>*/}
+                            {favoriteIconDecider()}
                         </Grid>
                     </Grid>
                 </CardContent>

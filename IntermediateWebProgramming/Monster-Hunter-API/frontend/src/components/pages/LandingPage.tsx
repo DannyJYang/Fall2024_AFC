@@ -23,7 +23,7 @@ export default function LandingPage() {
             <p>Change font to a custom font</p>
             <p>Implement favorites function</p>
             <p>Fix background music audio slider to somewhere better</p>
-            <p>Move search function to the navbar search bar</p>
+
         </>
     )
 }

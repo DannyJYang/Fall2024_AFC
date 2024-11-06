@@ -30,16 +30,11 @@ public class MonsterService {
         Monster monster = monsterRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("Monster not found with id: " + id)
         );
-        if(monster.isFavorite()) {
-            monsterRepository.findById(id).get().setFavorite(false);
-            System.out.println(monsterRepository.findById(id).get().isFavorite());
-            return monster;
-        }
-        else {
-            monsterRepository.findById(id).get().setFavorite(true);
-            System.out.println(monsterRepository.findById(id).get().isFavorite());
-            return monster;
-        }
+        boolean newFavoriteStatus = (monster.isFavorite()) ? false : true;
+        monsterRepository.findById(id).get().setFavorite(newFavoriteStatus);
+        monsterRepository.save(monster);
+        System.out.println("In service: " + monster.getName() + " " + monster.isFavorite());
+        return monsterRepository.findById(id).get();
     }
 
     public Boolean getFavoriteStatus (Long id) {
