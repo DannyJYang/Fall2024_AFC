@@ -56,7 +56,8 @@ function App() {
                            element={<SearchPage searchInput={searchInput} setSearchInput={setSearchInput}/>}/>
                     <Route path="/LandingPage" element={<LandingPage/>}/>
                     <Route path="/ErrorPage" element={<ErrorPage/>}/>
-                    <Route path="/FavoritePage" element={<FavoritePage/>}/>
+                    <Route path="/FavoritePage"
+                           element={<FavoritePage setSearchInput={setSearchInput}/>}/>
                 </Routes>
             </ThemeProvider>
             <div className="App">

@@ -20,9 +20,9 @@ export default function LandingPage() {
             <p>Will have to make my own database and assets for MH World: Iceborne, MH Rise and MH Wilds</p>
 
             <h2>Things to do</h2>
-            <p>Change font to a custom font</p>
+            <p><s>Change font to a custom font</s></p>
             <p>Implement favorites function</p>
-            <p>Fix background music audio slider to somewhere better</p>
+            <p>Move background music audio slider to somewhere better</p>
 
         </>
     )

@@ -48,7 +48,7 @@ const MonsterCard: Monster = ({monster}) => {
                 <CardContent>
                     <Grid container>
                         <Grid item xs={10}>
-                            <Typography gutterBottom variant="h5" component="div">
+                            <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "Cinzel"}}>
                                 {monster.name}
                             </Typography>
                         </Grid>
@@ -71,7 +71,7 @@ const MonsterCard: Monster = ({monster}) => {
                     height="auto"
                     image={imageRoute || MonsterHunterEmblem}
                 />
-                <Typography variant="body2"
+                <Typography variant="body3"
                             style={{color: 'text.secondary', minHeight: 80, maxHeight: 130, overflow: "auto"}}>
                     {monster.description}
                 </Typography>

@@ -4,7 +4,7 @@ import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Auto
 import monsterNameAutoComplete from '../helper.ts'
 import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from "react-router-dom";
-import {FormEvent, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
 
 const Search = styled('div')(({ theme }) => ({
@@ -71,7 +71,7 @@ export default function Navbar({searchInput, setSearchInput}) {
 
                     <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
                         <Typography variant="h6" noWrap component="div">
-                            <h3 style={{marginRight: "15px" }}>Monster Killer API</h3>
+                            <h3 style={{marginRight: "10px", fontFamily: "Cinzel"}}>Monster Killer API</h3>
                         </Typography>
                     </Box>
 

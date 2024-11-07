@@ -28,13 +28,13 @@ const WeaknessCard: Monster = ({monster}) => {
         <>
             <Card sx={{maxWidth: 345, height: 550}}>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                        Weaknesses:
+                    <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "Cinzel"}}>
+                        Monster Weaknesses:
                     </Typography>
                     {weakness.length > 0 ? (
                         weakness.map((weaknessItem, index) => (
                             <Box>
-                                <Typography key={index} variant="p">
+                                <Typography key={index} variant="p" sx={{fontSize: "18px"}}>
                                     - {weaknessItem.element}: {Array.from({ length: weaknessItem.stars }, (_, i) => (
                                     <StarIcon key={i} fontSize="small" />
                                 ))}
@@ -42,41 +42,41 @@ const WeaknessCard: Monster = ({monster}) => {
                             </Box>
                         ))
                     ) : (
-                        <Typography variant="body2">No Weaknesses</Typography>
+                        <Typography variant="body2" sx={{fontSize: "16px"}}>No Weaknesses</Typography>
                     )}
                 </CardContent>
 
 
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "Cinzel"}}>
                         Monster Resistance:
                     </Typography>
                     {resistance.length > 0 ? (
                         resistance.map((resistanceItem, index) => (
                             <Box>
-                                <Typography key={index} variant="p">
+                                <Typography key={index} variant="p" sx={{fontSize: "18px"}}>
                                     - {resistanceItem.element}
                                 </Typography>
                             </Box>
                         ))
                     ) : (
-                        <Typography variant="body2">No Resistances</Typography>
+                        <Typography variant="body2" sx={{fontSize: "16px"}}>No Resistances</Typography>
                     )}
                 </CardContent>
                 <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
+                    <Typography gutterBottom variant="h5" component="div" sx={{fontFamily: "Cinzel"}}>
                         Monster Ailments:
                     </Typography>
                     {ailment.length > 0 ? (
                         ailment.map((ailmentItem, index) => (
                             <Box>
-                                <Typography key={index} variant="p">
+                                <Typography key={index} variant="p" sx={{fontSize: "18px"}}>
                                     - {ailmentItem.name}
                                 </Typography>
                             </Box>
                         ))
                     ) : (
-                        <Typography variant="body2">No Ailments</Typography>
+                        <Typography variant="body2" sx={{fontSize: "16px"}}>No Ailments</Typography>
                     )}
                 </CardContent>
 

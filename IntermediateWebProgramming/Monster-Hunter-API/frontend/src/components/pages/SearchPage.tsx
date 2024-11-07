@@ -33,6 +33,7 @@ export default function SearchPage({searchInput, setSearchInput}) {
             }
         }
         getSearch();
+        setSearchInput("")
     }, [searchInput]);
 
 
@@ -48,7 +49,7 @@ export default function SearchPage({searchInput, setSearchInput}) {
                         {weaknessCard ? weaknessCard : <p>IT HAS NO WEAKNESS? IT'S TOO POWERFUL!</p>}
                     </Grid>
 
-                    <Grid item>
+                    <Grid item >
                         {/*<img src="../src/assets/weaknessChart/Rathalos.png" alt="" width="850px" height="auto"/>*/}
                         {weaknessChart ? <img src={weaknessChart} alt='Weakness Chart' width="850px" height="auto" /> : null}
 
