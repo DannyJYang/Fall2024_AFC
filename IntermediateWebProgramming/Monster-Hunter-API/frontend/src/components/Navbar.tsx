@@ -47,6 +47,7 @@ export default function Navbar({searchInput, setSearchInput}) {
                         <Typography variant="h6" noWrap component="div">
                             <h3 onClick={() => navigate('./FavoritePage')} style={{ cursor: "pointer" }}>Favorites</h3>
                         </Typography>
+
                     </Box>
 
                     <Search>

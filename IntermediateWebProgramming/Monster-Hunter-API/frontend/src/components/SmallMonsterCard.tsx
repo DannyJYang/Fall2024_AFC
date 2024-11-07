@@ -4,6 +4,7 @@ import {Monster} from "./type.ts";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from "@mui/icons-material/Star";
+import Checkbox from '@mui/material/Checkbox';
 import {Grid} from "@mui/material";
 import {updateFavoriteStatus, getFavoriteStatus} from "./monsterService.ts";
 import {useEffect, useState} from "react";
@@ -27,14 +28,6 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput}) => {
         fetchFavoriteStatus();
     }, [monster.id, isFavorite])
 
-    // const favoriteIconDecider = () => {
-    //     return isFavorite ? (
-    //         <FavoriteIcon fontSize='large' style={{ cursor: 'pointer' }} onClick={handleClick} />
-    //     ) : (
-    //         <FavoriteBorderIcon fontSize='large' style={{ cursor: 'pointer' }} onClick={handleClick} />
-    //     );
-    // };
-
     const handleClick = () => {
         const monsterName = monster.name;
         console.log(monsterName)
@@ -46,22 +39,18 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput}) => {
 
     return (
         <>
-            <Card sx={{width: 180, height: 180}}>
-                <CardContent sx={{padding:'8px'}}>
-                    <Grid container sx={{justifyContent:'center'}}>
-                        <Grid>
-                            <Typography gutterBottom variant="p" component="div" sx={{fontFamily: "Cinzel"}}>
+            <Card sx={{width: 180, height: 200}}>
+                <CardContent sx={{padding: '4px 6px'}}> {/*Top/Bot 4px, left/right 6px */}
+                    <Grid container sx={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+                        <Grid xs={9} >
+                            <Typography gutterBottom variant="p" component="div" sx={{fontFamily: "Cinzel", marginBottom: 0}}>
                                 {monster.name}
                             </Typography>
                         </Grid>
-                        {/*/!*spacer to split the name and the icon*!/*/}
-                        {/*<Grid item xs={1}></Grid>*/}
 
-                        {/*<Grid item xs={1}>*/}
-                        {/*    /!*{getFavoriteStatus(monster.id) == true ? <img src={weaknessChart} alt='Weakness Chart' width="850px" height="auto" /> : null}*!/*/}
-                        {/*    /!*<FavoriteBorderIcon fontSize="large" style={{cursor:"pointer"}} onClick={handleClick}/>*!/*/}
-                        {/*    {favoriteIconDecider()}*/}
-                        {/*</Grid>*/}
+                        <Grid item xs={2} sx={{display: 'flex', alignItems: 'flex-start'}}>
+                            <Checkbox sx={{alignSelf: "flex-start"}}/>
+                        </Grid>
                     </Grid>
                 </CardContent>
                 <CardMedia
@@ -76,7 +65,6 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput}) => {
                     }}
                     image={imageRoute || MonsterHunterEmblem}
                     onClick={handleClick}
-
                 />
             </Card>
         </>

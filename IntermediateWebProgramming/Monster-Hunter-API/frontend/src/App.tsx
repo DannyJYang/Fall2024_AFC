@@ -49,7 +49,7 @@ function App() {
         <>
 
             <ThemeProvider theme={theme}>
-                <Navbar searchInput={searchInput} setSearchInput={setSearchInput}></Navbar>
+                <Navbar searchInput={searchInput} setSearchInput={setSearchInput} position="fixed"/>
                 <Routes>
                     <Route index element={<LandingPage/>}/>
                     <Route path="/SearchPage"
