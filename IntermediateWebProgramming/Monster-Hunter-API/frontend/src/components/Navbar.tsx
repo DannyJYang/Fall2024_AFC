@@ -1,13 +1,15 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
-import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Autocomplete} from '@mui/material/';
+import {styled, alpha} from '@mui/material/styles';
+import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Autocomplete, Grid} from '@mui/material/';
 import monsterNameAutoComplete from '../helper.ts'
 import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from "react-router-dom";
 import {FormEvent, useEffect, useState} from "react";
 import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
+import MonsterHunterLogoWhite from "../assets/Monster-Hunter-Emblem-White.png"
+import MusicPlayer from "./MusicPlayer.tsx";
 
-const Search = styled('div')(({ theme }) => ({
+const Search = styled('div')(({theme}) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: alpha(theme.palette.common.white, 0.15),
@@ -35,19 +37,25 @@ export default function Navbar({searchInput, setSearchInput}) {
 
     // @ts-ignore
     return (
-        <Box sx={{ flexGrow: 1 }}>
+        <Box sx={{flexGrow: 1}}>
             <AppBar position="sticky" style={{marginBottom: "3vh"}}>
                 <Toolbar>
-                    <Box sx={{ display: 'flex', flexGrow: 1 }}>
-                        <Typography variant="h6" noWrap component="div" sx={{ mr: 2 }}>
-                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{ mr: 1, marginTop:"6px" }} onClick={() => navigate('./LandingPage')}>
-                                <img src={MonsterHunterLogo} alt="Monster Hunter Logo" style={{width: '96px', height: "auto"}} />
+                    <Box sx={{display: 'flex', flexGrow: .5}}>
+                        <Typography variant="h6" noWrap component="div" sx={{mr: 2, color: 'white'}}>
+                            <IconButton edge="start" color="inherit" aria-label="menu" sx={{mr: 1, marginTop: "6px"}}
+                                        onClick={() => navigate('./LandingPage')}>
+                                <img src={MonsterHunterLogoWhite} alt="Monster Hunter Logo"
+                                     style={{width: '96px', height: "auto"}}/>
                             </IconButton>
                         </Typography>
                         <Typography variant="h6" noWrap component="div">
-                            <h3 onClick={() => navigate('./FavoritePage')} style={{ cursor: "pointer" }}>Favorites</h3>
+                            <h3 onClick={() => navigate('./FavoritePage')} style={{cursor: "pointer"}}>Favorites</h3>
                         </Typography>
-
+                        <Grid sx={{marginLeft: "25px"}}>
+                            <MusicPlayer
+                                sx={{justifySelf: 'center', marginTop: '5px'}}
+                            />
+                        </Grid>
                     </Box>
 
                     <Search>
@@ -56,21 +64,22 @@ export default function Navbar({searchInput, setSearchInput}) {
                             onChange={handleSearchInput}
                             disablePortal
                             options={monsterNameAutoComplete}
-                            sx={{ width: 400 }}
-                            renderInput={(params) => <TextField {...params} label="Search Monster Here" />}
+                            sx={{width: 400}}
+                            renderInput={(params) => <TextField {...params} label="Search Monster Here"/>}
                             onKeyDown={(event) => {
-                                if(event.key === 'Enter') {
+                                if (event.key === 'Enter') {
                                     event.preventDefault();
                                     setLocalInput("")
                                     navigate('./SearchPage')
-                                }}}
+                                }
+                            }}
                         />
                     </Search>
 
                     {/*spacer for search*/}
-                    <Box sx={{ flexGrow: 1 }} />
+                    <Box sx={{flexGrow: 1}}/>
 
-                    <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                    <Box sx={{display: {xs: 'none', md: 'flex'}}}>
                         <Typography variant="h6" noWrap component="div">
                             <h3 style={{marginRight: "10px", fontFamily: "Cinzel"}}>Monster Killer API</h3>
                         </Typography>
