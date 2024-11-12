@@ -48,8 +48,14 @@ export default function FavoritePage({setSearchInput}) {
     }
 
     const handleClear = () => {
-        playClick();
-        setSelectedMonsters([]);
+        if(selectedMonsters.length > 0) {
+            playClick();
+            setSelectedMonsters([]);
+        }
+        else {
+            console.log("Nothing to clear here, Boss!")
+            return;
+        }
     }
 
     const fetchFavoriteMonsters = async () => {

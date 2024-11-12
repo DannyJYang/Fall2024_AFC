@@ -12,7 +12,7 @@ import * as React from "react";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import {useNavigate} from "react-router-dom";
-import {playHover} from "../helper.ts";
+import {playConFirm, playHover} from "../helper.ts";
 
 
 const SmallMonsterCard: Monster = ({monster, setSearchInput, setSelectedMonsters, selectedMonsters}) => {
@@ -34,10 +34,12 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput, setSelectedMonsters
             // Add monster to selectedMonsters if checked
             console.log("This monster is selected", monster.name)
             setSelectedMonsters(prevSelected => [...prevSelected, monster.id]);
+            playHover();
         } else {
             // Remove monster from selectedMonsters if unchecked
             console.log("This monster is unselected", monster.name)
             setSelectedMonsters(prevSelected => prevSelected.filter(id => id !== monster.id));
+            playHover();
         }
     };
 
@@ -47,6 +49,7 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput, setSelectedMonsters
         const monsterName = monster.name;
         console.log(monsterName)
         setSearchInput(monsterName);
+        playConFirm();
         navigate('../SearchPage')
     }
 
@@ -66,7 +69,6 @@ const SmallMonsterCard: Monster = ({monster, setSearchInput, setSelectedMonsters
                             <Checkbox onChange={handleCheckboxChange}
                                       checked={selectedMonsters.includes(monster.id)}  // Check if the monster is selected
                                       sx={{alignSelf: "flex-start"}}
-                                      onMouseEnter={playHover}
                             />
                         </Grid>
                     </Grid>
