@@ -1,24 +1,50 @@
-import { Button, Card, CardContent, Grid, Slider, Box, IconButton, Stack } from "@mui/material";
+import {Button, Card, CardContent, Grid, Slider, Box, IconButton, Stack} from "@mui/material";
 import * as React from "react";
-import { useEffect, useRef, useState } from "react";
-import backgroundMusic from "../assets/BackgroundMusic.mp3";
-import { PauseRounded, PlayArrowRounded, VolumeDownRounded, VolumeUpRounded } from "@mui/icons-material";
+import {useEffect, useRef, useState} from "react";
+import backgroundMusic from "../assets/audio/BackgroundMusic.mp3";
+import backgroundMusic2 from "../assets/audio/BackGroundMusic2.mp3"
+import {
+    FastForwardRounded,
+    FastRewindRounded,
+    PauseRounded,
+    PlayArrowRounded,
+    VolumeDownRounded,
+    VolumeUpRounded
+} from "@mui/icons-material";
 
 interface MusicPlayerProps {
     sx?: object; // Accept sx as a prop to apply styles externally
 }
 
-const MusicPlayer: React.FC<MusicPlayerProps> = ({ sx }) => {
+const MusicPlayer: React.FC<MusicPlayerProps> = ({sx}) => {
     const audioRef = useRef<HTMLAudioElement | null>(null);
+    const musicList = [backgroundMusic, backgroundMusic2]
     const [volume, setVolume] = useState(0.4);
     const [paused, setPaused] = useState(false);
+    const [songIndex, setSongIndex] = useState(0)
 
+    const handleVolumeChange = (event: any, newValue: number) => {
+        setVolume(newValue / 100);  // Convert slider value to a volume between 0 and 1
+    };
+    const handleSongEnd = () => {
+        setSongIndex((prevIndex) => (prevIndex + 1) % musicList.length);
+    }
+    const handleMusicIndexChange = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
+        if (e.currentTarget.getAttribute("aria-label") === "next song") {
+            setSongIndex((prevIndex) => (prevIndex + 1) % musicList.length);
+        } else if (e.currentTarget.getAttribute("aria-label") === "previous song") {
+            setSongIndex((prevIndex) => (prevIndex - 1 + musicList.length) % musicList.length);
+        }
+    }
+
+    useEffect(() => {
+        console.log("Current song index: ", songIndex);  // Log the current song index
+    }, [songIndex]);
     useEffect(() => {
         if (audioRef.current) {
             audioRef.current.volume = volume;  // Update the volume of the audio element
         }
     }, [volume]);
-
     useEffect(() => {
         if (audioRef.current) {
             if (paused) {
@@ -31,33 +57,42 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ sx }) => {
         }
     }, [paused]);
 
-    const handleVolumeChange = (event: any, newValue: number) => {
-        setVolume(newValue / 100);  // Convert slider value to a volume between 0 and 1
-    };
-
     return (
         <>
-            <audio ref={audioRef} loop autoPlay>
-                <source src={backgroundMusic} type="audio/mpeg" />
+            <audio ref={audioRef}
+                   key={songIndex} //forces React to re-render when the song changes
+                   loop={false}
+                   autoPlay
+                   onEnded={handleSongEnd}>
+                <source src={musicList[songIndex]} type="audio/mpeg"/>
                 Your browser does not support the audio element.
             </audio>
 
             {/* Apply sx prop to Box element */}
             <Box sx={sx}>
-                <Card sx={{ width: "200px", height: "75px", backgroundColor: "#AF8F63" }}>
-                    <CardContent sx={{ justifyContent: "center", padding: "4px" }}>
-                        <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Card sx={{width: "200px", height: "75px", backgroundColor: "#AF8F63"}}>
+                    <CardContent sx={{justifyContent: "center", padding: "4px"}}>
+                        <Grid container sx={{display: 'flex', justifyContent: 'center'}}>
+                            <IconButton aria-label="previous song" onClick={handleMusicIndexChange}>
+                                <FastRewindRounded fontSize="medium"/>
+                            </IconButton>
+
                             <IconButton
                                 aria-label={paused ? 'play' : 'pause'}
                                 onClick={() => setPaused(!paused)}
                             >
                                 {paused ? (
-                                    <PlayArrowRounded sx={{ fontSize: '1.5rem' }} />
+                                    <PlayArrowRounded sx={{fontSize: '1.5rem'}}/>
                                 ) : (
-                                    <PauseRounded sx={{ fontSize: '1.5rem' }} />
+                                    <PauseRounded sx={{fontSize: '1.5rem'}}/>
                                 )}
                             </IconButton>
+
+                            <IconButton aria-label="next song" onClick={handleMusicIndexChange}>
+                                <FastForwardRounded fontSize="medium"/>
+                            </IconButton>
                         </Grid>
+
                         <Stack
                             spacing={2}
                             direction="row"
@@ -73,7 +108,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ sx }) => {
                             })}
                             alignItems="center"
                         >
-                            <VolumeDownRounded />
+                            <VolumeDownRounded/>
                             <Slider
                                 aria-label="Volume"
                                 value={volume * 100}  // Convert volume to slider range
@@ -99,7 +134,7 @@ const MusicPlayer: React.FC<MusicPlayerProps> = ({ sx }) => {
                                     }),
                                 })}
                             />
-                            <VolumeUpRounded />
+                            <VolumeUpRounded/>
                         </Stack>
                     </CardContent>
                 </Card>

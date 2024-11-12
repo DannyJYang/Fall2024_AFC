@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {styled, alpha} from '@mui/material/styles';
 import {AppBar, Box, Toolbar, IconButton, Typography, InputBase, TextField, Autocomplete, Grid} from '@mui/material/';
-import monsterNameAutoComplete from '../helper.ts'
+import monsterNameAutoComplete, {playClick, playHover} from '../helper.ts'
 import SearchIcon from '@mui/icons-material/Search';
 import {useNavigate} from "react-router-dom";
 import {FormEvent, useEffect, useState} from "react";
-import MonsterHunterLogo from "../assets/Monster-Hunter-Emblem.png"
-import MonsterHunterLogoWhite from "../assets/Monster-Hunter-Emblem-White.png"
+import MonsterHunterLogo from "../assets/photos/Monster-Hunter-Emblem.png"
+import MonsterHunterLogoWhite from "../assets/photos/Monster-Hunter-Emblem-White.png"
 import MusicPlayer from "./MusicPlayer.tsx";
 
 const Search = styled('div')(({theme}) => ({
@@ -43,13 +43,20 @@ export default function Navbar({searchInput, setSearchInput}) {
                     <Box sx={{display: 'flex', flexGrow: .5}}>
                         <Typography variant="h6" noWrap component="div" sx={{mr: 2, color: 'white'}}>
                             <IconButton edge="start" color="inherit" aria-label="menu" sx={{mr: 1, marginTop: "6px"}}
-                                        onClick={() => navigate('./LandingPage')}>
+                                        onClick={() => {
+                                            playClick()
+                                            navigate('./LandingPage')}}
+                                        >
                                 <img src={MonsterHunterLogoWhite} alt="Monster Hunter Logo"
                                      style={{width: '96px', height: "auto"}}/>
                             </IconButton>
                         </Typography>
                         <Typography variant="h6" noWrap component="div">
-                            <h3 onClick={() => navigate('./FavoritePage')} style={{cursor: "pointer"}}>Favorites</h3>
+                            <h3 onClick={() => {
+                                playClick()
+                                navigate('./FavoritePage')}}
+                                style={{cursor: "pointer"}}
+                            >Favorites</h3>
                         </Typography>
                         <Grid sx={{marginLeft: "25px"}}>
                             <MusicPlayer

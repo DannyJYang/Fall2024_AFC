@@ -68,11 +68,11 @@
 /*}*/
 
 body {
-    background-image: url("./assets/Background Photo.png");
+    background-image: url("assets/photos/Background Photo.png");
     background-size: 70%;
     background-repeat: no-repeat;
     background-position: center;
-    height: 100vh;
+    height: 115vh;
     background-color: #93754c;
     /*font-family: "Markazi Text", serif;*/
     font-family: "EB Garamond", serif;

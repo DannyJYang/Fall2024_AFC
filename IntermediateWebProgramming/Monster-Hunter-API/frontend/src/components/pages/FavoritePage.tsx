@@ -6,10 +6,12 @@ import {useEffect, useState} from "react";
 import {getAllFavoriteMonsters} from "../monsterService.ts";
 import MonsterCard from "../MonsterCard.tsx";
 import SmallMonsterCard from "../SmallMonsterCard.tsx";
-import {Card, CardContent, CardMedia, Grid, Typography} from "@mui/material";
-import MonsterHunterEmblem from "../../assets/Monster-Hunter-Emblem.png";
+import {Button, Card, CardContent, CardMedia, Grid, Typography} from "@mui/material";
+import MonsterHunterEmblem from "../../assets/photos/Monster-Hunter-Emblem.png";
 import {Monster} from "../type.ts";
 import axios from "axios";
+import {updateFavoriteStatus} from "../monsterService.ts";
+import {playClick, playConFirm} from "../../helper.ts";
 
 const DemoPaper = styled(Paper)(({theme}) => ({
     width: 140,
@@ -22,7 +24,33 @@ const DemoPaper = styled(Paper)(({theme}) => ({
 export default function FavoritePage({setSearchInput}) {
 
     const [favoriteMonsters, setFavoriteMonsters] = useState([]);
+    const [selectedMonsters, setSelectedMonsters] = useState([]);
 
+    const handleChangeFavoriteStatus = async () => {
+        if(selectedMonsters.length == 0) {
+            console.log("Selected monster array is empty!")
+            return;
+        }
+        try {
+            console.log("Removing selected monsters: ", selectedMonsters)
+            const responses = await Promise.all(
+                selectedMonsters.map(async (singleMonsterId) => {
+                    console.log("Removing single monster: ", singleMonsterId)
+                    await updateFavoriteStatus(singleMonsterId)
+                })
+            )
+            setSelectedMonsters([]);
+            playConFirm();
+            await fetchFavoriteMonsters(); //refreshing favorite page
+        } catch (e) {
+            console.error("Error mass updating favorite status: ", e)
+        }
+    }
+
+    const handleClear = () => {
+        playClick();
+        setSelectedMonsters([]);
+    }
 
     const fetchFavoriteMonsters = async () => {
         try {
@@ -33,7 +61,8 @@ export default function FavoritePage({setSearchInput}) {
             let temp = sortedMonsters.map((singleFavMonster: Monster) => {
                 return (
                     <Grid item key={singleFavMonster.id}>
-                        <SmallMonsterCard monster={singleFavMonster} setSearchInput={setSearchInput}/>
+                        <SmallMonsterCard monster={singleFavMonster} setSearchInput={setSearchInput}
+                                          setSelectedMonsters={setSelectedMonsters} selectedMonsters={selectedMonsters}/>
                     </Grid>
                 )
             })
@@ -47,11 +76,23 @@ export default function FavoritePage({setSearchInput}) {
         fetchFavoriteMonsters();
     }, [favoriteMonsters])
 
+
     return (
         <>
-            <Grid container spacing={3} sx={{maxWidth: '50vw'}}>
-                {favoriteMonsters}
-            </Grid>
+            <Stack direction="row">
+                <Grid container spacing={3} sx={{maxWidth: '50vw'}}>
+                    {favoriteMonsters}
+                </Grid>
+                <Grid container>
+                    <Grid>
+                        <Button variant="contained" onClick={handleChangeFavoriteStatus}
+                                sx={{marginRight: "15px"}}>Remove</Button>
+                        <Button variant="contained" onClick={handleClear}>Clear</Button>
+                    </Grid>
+                </Grid>
+
+            </Stack>
+
         </>
     )
 }

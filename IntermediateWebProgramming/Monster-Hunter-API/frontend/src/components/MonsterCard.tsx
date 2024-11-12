@@ -1,5 +1,5 @@
 import {Box, Card, CardContent, CardMedia, Typography} from '@mui/material/';
-import MonsterHunterEmblem from "../assets/Monster-Hunter-Emblem.png"
+import MonsterHunterEmblem from "../assets/photos/Monster-Hunter-Emblem.png"
 import {Monster} from "./type.ts";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -8,6 +8,7 @@ import {Grid} from "@mui/material";
 import {updateFavoriteStatus, getFavoriteStatus} from "./monsterService.ts";
 import {useEffect, useState} from "react";
 import * as React from "react";
+import {playClick, playHover} from "../helper.ts";
 
 
 // @ts-ignore
@@ -19,6 +20,7 @@ const MonsterCard: Monster = ({monster}) => {
     const handleClick = async () => {
         const updatedMonsterFavoriteStatus = await updateFavoriteStatus(monster.id);
         setIsFavorite(updatedMonsterFavoriteStatus);  // Update state based on the new favorite status
+        playClick()
         console.log(updatedMonsterFavoriteStatus);
     }
 

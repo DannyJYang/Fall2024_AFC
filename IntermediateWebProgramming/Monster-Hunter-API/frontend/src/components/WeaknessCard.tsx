@@ -1,5 +1,5 @@
 import {Box, Card, CardContent, CardMedia, Typography} from '@mui/material/';
-import MonsterHunterEmblem from "../assets/Monster-Hunter-Emblem.png"
+import MonsterHunterEmblem from "../assets/photos/Monster-Hunter-Emblem.png"
 import {Monster} from "./type.ts";
 import {useEffect, useState} from "react";
 import StarIcon from '@mui/icons-material/Star';
