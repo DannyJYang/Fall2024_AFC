@@ -39,14 +39,14 @@ const WeaknessCard: Monster = ({monster}) => {
     return (
         <>
             <Card sx={{
-                width: 345, height: 550, overflow: 'auto',
+                width: 250, height: 550, overflow: 'auto',
                 '&::-webkit-scrollbar': {
                     display: 'none', // Hide scrollbar for Webkit browsers
                 }
             }}>
                 <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
-                        Monster Weaknesses:
+                        Monster Weaknesses
                     </Typography>
                     {weakness.length > 0 ? (
                         weakness.map((weaknessItem) => (
@@ -76,7 +76,7 @@ const WeaknessCard: Monster = ({monster}) => {
 
                 <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
-                        Monster Resistance:
+                        Monster Resistance
                     </Typography>
                     {resistance.length > 0 ? (
                         resistance.map((resistanceItem, index) => (
@@ -99,7 +99,7 @@ const WeaknessCard: Monster = ({monster}) => {
                 </CardContent>
                 <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
-                        Monster Ailments:
+                        Monster Ailments
                     </Typography>
                     {ailment.length > 0 ? (
                         ailment.map((ailmentItem, index) => (

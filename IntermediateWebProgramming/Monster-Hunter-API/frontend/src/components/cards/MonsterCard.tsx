@@ -79,10 +79,15 @@ const MonsterCard: Monster = ({monster}) => {
                     height="auto"
                     image={imageRoute || MonsterHunterEmblem}
                 />
+                <CardContent sx={{height:130, padding: 1, overflow: 'auto',
+                    '&::-webkit-scrollbar': {
+                        display: 'none', // Hide scrollbar for Webkit browsers
+                    }}}>
                 <Typography variant="body3"
-                            style={{color: 'text.secondary', minHeight: 80, maxHeight: 130, overflow: "auto"}}>
+                            style={{color: 'text.secondary', lineHeight: 1.2}}>
                     {monster.description}
                 </Typography>
+                </CardContent>
             </Card>
         </>
     );
