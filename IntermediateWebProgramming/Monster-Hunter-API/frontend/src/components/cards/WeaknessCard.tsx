@@ -12,16 +12,12 @@ const WeaknessCard: Monster = ({monster}) => {
     const [resistance, setResistance] = useState<any[]>([]);
 
     useEffect(() => {
-        setWeakness([])
-        setAilment([])
-        setResistance([])
-
         const fetchMonsterData = () => {
             //Resetting the state to blank as there was a glitch with Safi'jiiva having 2 dragon weakness
             //If a user switched to another monster, Safi'Jiiva's dragon 3 weakness would carry over
-            // setWeakness([])
-            // setAilment([])
-            // setResistance([])
+            setWeakness([])
+            setAilment([])
+            setResistance([])
 
             const newWeakness = monster.weaknesses || [];
             const newAilment = monster.ailments || [];
@@ -54,19 +50,22 @@ const WeaknessCard: Monster = ({monster}) => {
                     </Typography>
                     {weakness.length > 0 ? (
                         weakness.map((weaknessItem) => (
-                            <Box key={weaknessItem.element}>
-                                <Grid container>
+                            <Box key={weaknessItem.element} sx={{display: 'flex'}}>
+                                <Grid sx={{alignSelf: 'center', justifySelf:'center', marginRight: '6px'}}>
                                     <img
                                         src={`../src/assets/ElementIcon/${weaknessItem.element}.webp`}
-                                        style={{width: 22, height: 22, marginRight: '6px'}}
+                                        style={{width: 22, height: 22}}
                                         alt={weaknessItem.element}
                                     />
-                                    <Typography variant="body1" sx={{fontSize: '16px'}}>
-                                        {weaknessItem.element}: {Array.from({length: weaknessItem.stars}, (_, i) => (
-                                        <StarIcon key={i} fontSize="small" sx={{alignItems: 'center'}}/>
-                                    ))}
-                                    </Typography>
                                 </Grid>
+                                <Typography variant="body1" sx={{fontSize: '16px', alignSelf:'center'}}>
+                                    {weaknessItem.element}:
+                                </Typography>
+                                <Typography sx={{alignSelf: 'center'}}>
+                                    {Array.from({length: weaknessItem.stars}, (_, i) => (
+                                        <StarIcon key={i} fontSize="small" sx={{alignItems:'center', marginTop: '5px'}}/>
+                                    ))}
+                                </Typography>
                             </Box>
                         ))
                     ) : (
