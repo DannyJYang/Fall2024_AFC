@@ -1,4 +1,4 @@
-import {Box, Card, CardContent, CardMedia, Typography} from '@mui/material/';
+import {Box, Card, CardContent, CardMedia, Grid, Typography} from '@mui/material/';
 import MonsterHunterEmblem from "../../assets/photos/Monster-Hunter-Emblem.png"
 import {Monster} from "../type.ts";
 import {useEffect, useState} from "react";
@@ -12,8 +12,17 @@ const WeaknessCard: Monster = ({monster}) => {
     const [resistance, setResistance] = useState<any[]>([]);
 
     useEffect(() => {
-        // Fetch and sort data when the monster changes
+        setWeakness([])
+        setAilment([])
+        setResistance([])
+
         const fetchMonsterData = () => {
+            //Resetting the state to blank as there was a glitch with Safi'jiiva having 2 dragon weakness
+            //If a user switched to another monster, Safi'Jiiva's dragon 3 weakness would carry over
+            // setWeakness([])
+            // setAilment([])
+            // setResistance([])
+
             const newWeakness = monster.weaknesses || [];
             const newAilment = monster.ailments || [];
             const newResistance = monster.resistances || [];
@@ -26,34 +35,38 @@ const WeaknessCard: Monster = ({monster}) => {
             setAilment(newAilment);
             setResistance(newResistance);
         };
-
         fetchMonsterData();
-    }, [monster]); // This effect runs when the `monster` prop changes
+    }, [monster]);
 
 
     // @ts-ignore
     return (
         <>
-            <Card sx={{width: 345, height: 550, overflow: 'auto',
+            <Card sx={{
+                width: 345, height: 550, overflow: 'auto',
                 '&::-webkit-scrollbar': {
                     display: 'none', // Hide scrollbar for Webkit browsers
-                }}}>
-                <CardContent sx={{padding:"8px"}}>
+                }
+            }}>
+                <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
                         Monster Weaknesses:
                     </Typography>
                     {weakness.length > 0 ? (
                         weakness.map((weaknessItem) => (
                             <Box key={weaknessItem.element}>
-                                <Typography variant="body1" sx={{ fontSize: '16px' }}>
-                                    - <img
-                                    src={`../src/assets/ElementIcon/${weaknessItem.element}.webp`}
-                                    style={{width:22, height:22}}
-                                />
-                                    {weaknessItem.element}: {Array.from({length: weaknessItem.stars}, (_, i) => (
-                                    <StarIcon key={i} fontSize="small"/>
-                                ))}
-                                </Typography>
+                                <Grid container>
+                                    <img
+                                        src={`../src/assets/ElementIcon/${weaknessItem.element}.webp`}
+                                        style={{width: 22, height: 22, marginRight: '6px'}}
+                                        alt={weaknessItem.element}
+                                    />
+                                    <Typography variant="body1" sx={{fontSize: '16px'}}>
+                                        {weaknessItem.element}: {Array.from({length: weaknessItem.stars}, (_, i) => (
+                                        <StarIcon key={i} fontSize="small" sx={{alignItems: 'center'}}/>
+                                    ))}
+                                    </Typography>
+                                </Grid>
                             </Box>
                         ))
                     ) : (
@@ -62,40 +75,46 @@ const WeaknessCard: Monster = ({monster}) => {
                 </CardContent>
 
 
-                <CardContent sx={{padding:"8px"}}>
+                <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
                         Monster Resistance:
                     </Typography>
                     {resistance.length > 0 ? (
                         resistance.map((resistanceItem, index) => (
                             <Box>
-                                <Typography key={index} variant="p" sx={{fontSize: "16px"}}>
-                                    - <img
-                                    src={`../src/assets/ElementIcon/${resistanceItem.element}.webp`}
-                                    style={{width: 22, height: 22}}
-                                />
-                                    {resistanceItem.element}
-                                </Typography>
+                                <Grid container>
+                                    <img
+                                        src={`../src/assets/ElementIcon/${resistanceItem.element}.webp`}
+                                        style={{width: 22, height: 22, marginRight: '6px'}}
+                                        alt={resistanceItem.element}
+                                    />
+                                    <Typography key={index} variant="body1" sx={{fontSize: "16px"}}>
+                                        {resistanceItem.element}
+                                    </Typography>
+                                </Grid>
                             </Box>
                         ))
                     ) : (
                         <Typography variant="body2" sx={{fontSize: "16px"}}>No Resistances</Typography>
                     )}
                 </CardContent>
-                <CardContent sx={{padding:"8px"}}>
+                <CardContent sx={{padding: "8px"}}>
                     <Typography gutterBottom component="div" sx={{fontFamily: "Cinzel", fontSize: "18px"}}>
                         Monster Ailments:
                     </Typography>
                     {ailment.length > 0 ? (
                         ailment.map((ailmentItem, index) => (
                             <Box>
-                                <Typography key={index} variant="p" sx={{fontSize: "16px"}}>
-                                    - <img
-                                    src={`../src/assets/ElementIcon/${ailmentItem.name}.webp`}
-                                    style={{width: 22, height: 22}}
-                                />
-                                    {ailmentItem.name}
-                                </Typography>
+                                <Grid container>
+                                    <img
+                                        src={`../src/assets/ElementIcon/${ailmentItem.name}.webp`}
+                                        style={{width: 22, height: 22, marginRight: '6px'}}
+                                        alt={ailmentItem.name}
+                                    />
+                                    <Typography key={index} variant="body1" sx={{fontSize: "16px"}}>
+                                        {ailmentItem.name}
+                                    </Typography>
+                                </Grid>
                             </Box>
                         ))
                     ) : (
