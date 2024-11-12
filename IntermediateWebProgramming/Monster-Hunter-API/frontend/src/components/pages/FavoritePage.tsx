@@ -11,7 +11,7 @@ import MonsterHunterEmblem from "../../assets/photos/Monster-Hunter-Emblem.png";
 import {Monster} from "../type.ts";
 import axios from "axios";
 import {updateFavoriteStatus} from "../monsterService.ts";
-import {playClick, playConFirm} from "../../helper.ts";
+import {playClear, playClick, playConFirm, playTake} from "../../helper.ts";
 
 const DemoPaper = styled(Paper)(({theme}) => ({
     width: 140,
@@ -40,7 +40,7 @@ export default function FavoritePage({setSearchInput}) {
                 })
             )
             setSelectedMonsters([]);
-            playConFirm();
+            playTake();
             await fetchFavoriteMonsters(); //refreshing favorite page
         } catch (e) {
             console.error("Error mass updating favorite status: ", e)
@@ -49,7 +49,7 @@ export default function FavoritePage({setSearchInput}) {
 
     const handleClear = () => {
         if(selectedMonsters.length > 0) {
-            playClick();
+            playClear();
             setSelectedMonsters([]);
         }
         else {

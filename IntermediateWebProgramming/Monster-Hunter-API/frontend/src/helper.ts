@@ -1,6 +1,8 @@
 import MenuClick1 from "./assets/audio/MenuClick.mp3"
 import MenuClick2 from "./assets/audio/MenuClick2.mp3"
 import MenuClick3 from "./assets/audio/MenuClick3.mp3"
+import clearSoundEffect from './assets/audio/MenuClear.mp3'
+import takeSoundEffect from './assets/audio/TakeSound.mp3'
 import {Simulate} from "react-dom/test-utils";
 import click = Simulate.click;
 
@@ -52,7 +54,8 @@ const monsterNameAutoComplete = [
 const hoverSound = new Audio (MenuClick1)
 const clickSound = new Audio (MenuClick2)
 const confirmSound = new Audio (MenuClick3)
-
+const clearSound = new Audio (clearSoundEffect)
+const takeSound = new Audio (takeSoundEffect)
 
 
 export function playHover(){
@@ -67,6 +70,13 @@ export function playConFirm(){
     confirmSound.currentTime = 0;
     confirmSound.play();
 }
-
+export function playClear() {
+    clearSound.currentTime = 0;
+    clearSound.play()
+}
+export function playTake() {
+    takeSound.currentTime = 0;
+    takeSound.play();
+}
 
 export default monsterNameAutoComplete

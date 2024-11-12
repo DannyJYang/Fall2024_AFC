@@ -8,7 +8,7 @@ import {Grid} from "@mui/material";
 import {updateFavoriteStatus, getFavoriteStatus} from "../monsterService.ts";
 import {useEffect, useState} from "react";
 import * as React from "react";
-import {playClick, playHover} from "../../helper.ts";
+import {playClear, playClick, playConFirm, playHover} from "../../helper.ts";
 
 
 // @ts-ignore
@@ -20,7 +20,13 @@ const MonsterCard: Monster = ({monster}) => {
     const handleClick = async () => {
         const updatedMonsterFavoriteStatus = await updateFavoriteStatus(monster.id);
         setIsFavorite(updatedMonsterFavoriteStatus);  // Update state based on the new favorite status
-        playClick()
+        if(isFavorite === true) {
+            playClear()
+        }
+        if(isFavorite === false){
+            playClear()
+            playConFirm()
+        }
         console.log(updatedMonsterFavoriteStatus);
     }
 
