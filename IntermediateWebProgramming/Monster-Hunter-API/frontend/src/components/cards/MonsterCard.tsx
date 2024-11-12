@@ -1,14 +1,14 @@
 import {Box, Card, CardContent, CardMedia, Typography} from '@mui/material/';
-import MonsterHunterEmblem from "../assets/photos/Monster-Hunter-Emblem.png"
-import {Monster} from "./type.ts";
+import MonsterHunterEmblem from "../../assets/photos/Monster-Hunter-Emblem.png"
+import {Monster} from "../type.ts";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import StarIcon from "@mui/icons-material/Star";
 import {Grid} from "@mui/material";
-import {updateFavoriteStatus, getFavoriteStatus} from "./monsterService.ts";
+import {updateFavoriteStatus, getFavoriteStatus} from "../monsterService.ts";
 import {useEffect, useState} from "react";
 import * as React from "react";
-import {playClick, playHover} from "../helper.ts";
+import {playClick, playHover} from "../../helper.ts";
 
 
 // @ts-ignore

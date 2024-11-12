@@ -4,8 +4,8 @@ import {Box, Button, Grid, styled, TextField} from "@mui/material";
 import {brown} from "@mui/material/colors";
 import {getMonster} from "../monsterService.ts";
 import {Monster} from "../type.ts";
-import MonsterCard from "../MonsterCard.tsx";
-import WeaknessCard from "../WeaknessCard.tsx";
+import MonsterCard from "../cards/MonsterCard.tsx";
+import WeaknessCard from "../cards/WeaknessCard.tsx";
 
 
 export default function SearchPage({searchInput, setSearchInput}) {
