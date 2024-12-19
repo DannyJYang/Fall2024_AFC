@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Grid} from "@mui/material";
+import {Grid, Stack} from "@mui/material";
 import {useEffect, useState} from "react";
 
 export default function LandingPage() {
@@ -82,7 +82,14 @@ export default function LandingPage() {
             <p><s>Maybe use monster hunter world theme as another background music</s></p>
             <p>Click monster icon in search and it plays monster roar sound</p>
             <p>Use markdown file for the landing page</p>
-
+            <Stack direction='row'>
+                <Stack direction='column'>
+                    <h1>Outcome</h1>
+                    <h1>Risk</h1>
+                    <h1>Metric</h1>
+                    <h1>Output</h1>
+                </Stack>
+            </Stack>
         </>
     )
 }

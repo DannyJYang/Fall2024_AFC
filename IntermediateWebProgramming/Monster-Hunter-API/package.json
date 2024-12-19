@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@mui/x-data-grid": "^7.23.1",
     "react-markdown": "^9.0.1",
     "vite-plugin-md": "^0.21.5"
   }
